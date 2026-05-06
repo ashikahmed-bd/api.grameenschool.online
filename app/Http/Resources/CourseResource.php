@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class CourseResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        // return parent::toArray($request);
+        return [
+            'id' => $this->hashid,
+
+            'author' => $this->whenLoaded('author', fn() => [
+                'id'   => $this->author->hashid,
+                'name' => $this->author->name,
+                'avatar_url' => $this->author->avatar_url,
+            ]),
+            $this->mergeWhen($this->relationLoaded('category'), [
+                'category' => [
+                    'id' => $this->category->hashid,
+                    'name' => $this->category->name,
+                    'slug' => $this->category->slug,
+                ],
+                'subcategory' => [
+                    'id' => $this->subcategory->hashid,
+                    'name' => $this->subcategory->name,
+                    'slug' => $this->subcategory->slug,
+                ],
+            ]),
+
+            'collection' => $this->whenLoaded('collection', fn() => [
+                'id'   => $this->collection->hashid,
+                'title' => $this->collection->title,
+                'slug' => $this->collection->slug,
+            ]),
+
+            'title' => $this->title,
+            'slug' => $this->slug,
+            'overview' => $this->overview,
+            'description' => $this->description,
+
+            'meta_title' => $this->meta_title,
+            'meta_description' => $this->meta_description,
+            'meta_keywords' => $this->meta_keywords,
+            'canonical_url' => $this->canonical_url,
+
+            'base_price' => $this->base_price,
+            'base_price_formatted' => $this->base_price_formatted,
+            'price' => round($this->price),
+            'price_formatted' => $this->price_formatted,
+            'access_days' => $this->access_days,
+
+            'level' => $this->level,
+
+            'learnings'    => $this->learnings ?? [],
+            'requirements' => $this->requirements ?? [],
+            'includes'     => $this->includes ?? [],
+
+            'cover_url' => $this->cover_url,
+            'intro_id' => $this->intro_id,
+
+            'status' => $this->status,
+            'created_at' => [
+                'human' => $this->created_at->diffForHumans(),
+                'timestamp' => $this->created_at,
+            ],
+            'updated_at' => [
+                'human' => $this->updated_at->diffForHumans(),
+                'timestamp' => $this->updated_at,
+            ],
+            'average_rating' => round($this->reviews_avg_rating, 1),
+            'reviews_count' => $this->whenCounted('reviews'),
+            'lectures_count' => $this->whenCounted('lectures'),
+            'enrollments_count' => $this->whenCounted('enrollments'),
+
+            'sections' => SectionResource::collection($this->whenLoaded('sections')),
+        ];
+    }
+}

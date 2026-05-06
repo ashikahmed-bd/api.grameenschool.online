@@ -1,0 +1,4169 @@
+{
+	"info": {
+		"_postman_id": "e0eba84f-7d6f-42c4-904d-622bbd6524b5",
+		"name": "LMS Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33089149"
+	},
+	"item": [
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "Home",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/home",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category Courses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/category/class-7/courses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"class-7",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Courses Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/microsoft-powerpoint-masterclass",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"microsoft-powerpoint-masterclass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Courses Curriculum",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/microsoft-powerpoint-masterclass/curriculum",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"microsoft-powerpoint-masterclass",
+								"curriculum"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Courses Instructors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/microsoft-powerpoint-masterclass/instructors",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"microsoft-powerpoint-masterclass",
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Courses Reviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/microsoft-powerpoint-masterclass/reviews",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"microsoft-powerpoint-masterclass",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/settings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/pages",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"pages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('TOKEN', pm.response.json().token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"01516598533\",\r\n    \"password\": \"password\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"\",\r\n    \"last_name\": \"\",\r\n    \"phone\": \"\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/auth/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/auth/profile",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/my-courses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"my-courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course Overview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/learn/microsoft-powerpoint-masterclass/overview",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"learn",
+								"microsoft-powerpoint-masterclass",
+								"overview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course Learn",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/learn/microsoft-powerpoint-masterclass/lecture/01K04F4XYCWCZ6Z4YXJQQH5KWS",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"learn",
+								"microsoft-powerpoint-masterclass",
+								"lecture",
+								"01K04F4XYCWCZ6Z4YXJQQH5KWS"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Referrals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/referral",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"referral"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Live Class",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/live-class",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"live-class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payouts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/payouts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"payouts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"current_password\": \"password\",\r\n  \"password\": \"12345678\",\r\n  \"password_confirmation\": \"12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/auth/password",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('TOKEN', \"\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/auth/logout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Ashik\",\r\n    \"last_name\": \"Ahmed\",\r\n    \"title\": \"Biology Teacher\",\r\n    \"email\": \"info@ashikahmed.net\",\r\n    \"phone\": \"01911742233\",\r\n    \"username\": \"ashikahmed\",\r\n    \"about\": \"Passionate Biology teacher dedicated to making science engaging and accessible for students. Committed to fostering curiosity and critical thinking through interactive learning.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/auth/profile",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Notifications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/notifications",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/cart/01JYBRXR38X7E3PN708C83SSX3/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"01JYBRXR38X7E3PN708C83SSX3",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Carts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/carts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/cart/01JYBF6K91B0B3DGF1KMR1MF0K/remove",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"01JYBF6K91B0B3DGF1KMR1MF0K",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/cart/clear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"clear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Referral Apply",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"referral_code\": \"ASHIK25\",\r\n    \"subtotal\": \"520\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/referral/apply",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"referral",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Checkout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/checkout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/order/LMS250719FGSWW",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"order",
+								"LMS250719FGSWW"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Process",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invoice_id\": \"TMSULKDDZVA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/payment/process",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"payment",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment IPN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/payment/ipn",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"payment",
+								"ipn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/dashboard",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Web Development 2\",\r\n  \"parent_id\": \"\",\r\n  \"sort_order\": 1,\r\n  \"show_on_homepage\": true,\r\n  \"overview\": \"All about modern web skills.\",\r\n  \"icon\": \"<i class='fa fa-laptop-code'></i>\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/categories/01JYZBNRGW91KAV1AMEC8CCK1B",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"01JYZBNRGW91KAV1AMEC8CCK1B"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_method\": \"PUT\",\r\n    \"name\": \"Web Development 2\",\r\n    \"parent_id\": \"\",\r\n    \"sort_order\": 1,\r\n    \"show_on_homepage\": true,\r\n    \"overview\": \"All about modern web skills.\",\r\n    \"icon\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/categories/01JYZBNRGW91KAV1AMEC8CCK1B",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"01JYZBNRGW91KAV1AMEC8CCK1B"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/categories/01JYZBNRGW91KAV1AMEC8CCK1B",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"01JYZBNRGW91KAV1AMEC8CCK1B"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/courses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Mastering Microsoft Excelkk\",\r\n  \"overview\": \"Learn Excel from beginner to expert level.\",\r\n  \"description\": \"This course covers basic to advanced features of Microsoft Excel, including formulas, charts, pivot tables, and automation.\",\r\n  \"level\": \"all\",\r\n  \"base_price\": 500,\r\n  \"price\": 199,\r\n  \"start_date\": \"2025-07-01 10:00:00\",\r\n  \"end_date\": \"2025-12-31 23:59:59\",\r\n  \"published_at\": \"2025-06-26 12:00:00\",\r\n  \"cover\": \"courses/covers/excel-cover.jpg\",\r\n  \"video_id\": \"jNI0fiX4q4A\",\r\n  \"provider\": \"youtube\",\r\n  \"category\": \"01JYPG3CVJ58RZH7218SQETGCD\",\r\n  \"subcategory\": \"01JYPG3CVRWMP3PT6PAK70Q1CQ\",\r\n  \"learnings\": [\r\n    \"Build RESTful APIs using Laravel 12\",\r\n    \"Use Eloquent effectively with relationships\",\r\n    \"Authentication and Authorization with Laravel Breeze and Sanctum\",\r\n    \"Deploy Laravel app using Docker\"\r\n  ],\r\n\r\n  \"requirements\": [\r\n    \"Basic understanding of PHP and OOP\",\r\n    \"Familiarity with Composer and Git\",\r\n    \"Local development environment setup\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/store",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZ9PFQ25E4MWEMBW2PH2PYQP",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZ9PFQ25E4MWEMBW2PH2PYQP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JYWRAKC7T418CDKM8M0FADXG",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JYWRAKC7T418CDKM8M0FADXG"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course Basic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JYWT1H7V3381G6WWJ5GFX2GK/basic",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JYWT1H7V3381G6WWJ5GFX2GK",
+								"basic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Basic Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Mastering Microsoft Excel\",\r\n  \"overview\": \"Learn Excel from beginner to expert level.\",\r\n  \"description\": \"This course covers basic to advanced features of Microsoft Excel, including formulas, charts, pivot tables, and automation.\",\r\n  \"level\": \"all\",\r\n  \"base_price\": 500,\r\n  \"price\": 199,\r\n  \"start_date\": \"2025-07-01 10:00:00\",\r\n  \"end_date\": \"2025-12-31 23:59:59\",\r\n  \"published_at\": \"2025-06-26 12:00:00\",\r\n  \"cover\": \"courses/covers/excel-cover.jpg\",\r\n  \"video_id\": \"jNI0fiX4q4A\",\r\n  \"provider\": \"youtube\",\r\n  \"category_id\": \"01JYWT1H0H06ZAMGK4E5708630\",\r\n  \"subcategory_id\": \"01JYWT1H0QJD444WZE8XPZXSK2\",\r\n  \"learnings\": [\r\n    \"Build RESTful APIs using Laravel 12\",\r\n    \"Use Eloquent effectively with relationships\",\r\n    \"Authentication and Authorization with Laravel Breeze and Sanctum\",\r\n    \"Deploy Laravel app using Docker\"\r\n  ],\r\n\r\n  \"requirements\": [\r\n    \"Basic understanding of PHP and OOP\",\r\n    \"Familiarity with Composer and Git\",\r\n    \"Local development environment setup\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JYWT1H7V3381G6WWJ5GFX2GK/basic",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JYWT1H7V3381G6WWJ5GFX2GK",
+								"basic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course curriculum",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JYX25HFKNWS4620ENYD9HKH6/curriculum",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JYX25HFKNWS4620ENYD9HKH6",
+								"curriculum"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sections",
+			"item": [
+				{
+					"name": "Sections",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZ9PFQ25E4MWEMBW2PH2PYQP/sections",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZ9PFQ25E4MWEMBW2PH2PYQP",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Introduction\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/01JYN2CDPH33SED5YF8WRZN688/sections",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"01JYN2CDPH33SED5YF8WRZN688",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sections dragged",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/01JYN2CDPH33SED5YF8WRZN688/sections/dragged",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"01JYN2CDPH33SED5YF8WRZN688",
+								"sections",
+								"dragged"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sections Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Introduction update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/01JYN2CDPH33SED5YF8WRZN688/sections/01JYN6JH5V9AZAKDGM0RPRJ6J5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"01JYN2CDPH33SED5YF8WRZN688",
+								"sections",
+								"01JYN6JH5V9AZAKDGM0RPRJ6J5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sections Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/01JYN2CDPH33SED5YF8WRZN688/sections/01JYN6JH5V9AZAKDGM0RPRJ6J5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"01JYN2CDPH33SED5YF8WRZN688",
+								"sections",
+								"01JYN6JH5V9AZAKDGM0RPRJ6J5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lectures",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Introduction to PHP\",\r\n  \"overview\": \"\",\r\n  \"video_id\": \"xYz123ABC\",\r\n  \"provider\": \"youtube\",\r\n  \"duration\": \"05:32\",\r\n  \"is_preview\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZX0DRSKA3KY5YCWF1387T6H/sections/01JZX0DRTSM1FC0JRN1VAA36MC/lectures",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZX0DRSKA3KY5YCWF1387T6H",
+								"sections",
+								"01JZX0DRTSM1FC0JRN1VAA36MC",
+								"lectures"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Introduction to PHP 2\",\r\n    \"overview\": \"Learn how to create impactful PowerPoint presentations from scratch.\",\r\n    \"video_id\": \"xYz123ABC\",\r\n    \"provider\": \"youtube\",\r\n    \"duration\": \"05:32\",\r\n    \"is_preview\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/01JYN9M5ZXRBSCFRM35DWPYQ1Y/lectures/01JYN9QJ8C3XPR741CW2MA3CNF",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"01JYN9M5ZXRBSCFRM35DWPYQ1Y",
+								"lectures",
+								"01JYN9QJ8C3XPR741CW2MA3CNF"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dragged",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/01JYN9M5ZXRBSCFRM35DWPYQ1Y/lectures/dragged",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"01JYN9M5ZXRBSCFRM35DWPYQ1Y",
+								"lectures",
+								"dragged"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/course/01JYN9M5ZXRBSCFRM35DWPYQ1Y/lectures/01JYN9QJ8C3XPR741CW2MA3CNF",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"01JYN9M5ZXRBSCFRM35DWPYQ1Y",
+								"lectures",
+								"01JYN9QJ8C3XPR741CW2MA3CNF"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Live Class",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/meets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"course_id\": \"01K040XN0RYTTGSXEMH1M898GG\",\r\n  \"user_id\": \"01K040XK25ZEFMSZSM5JE3123Z\",\r\n  \"title\": \"Vue 3 Composition API Deep Dive\",\r\n  \"description\": \"This session will cover practical usage of Vue 3 Composition API in real projects.\",\r\n  \"start_time\": \"2025-07-16T18:00:00\",\r\n  \"end_time\": \"2025-07-16T19:30:00\",\r\n  \"platform\": \"jitsi\",\r\n  \"status\": \"scheduled\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/meets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/meet/01JYZQP30R7PC242E9WSSDXK6W",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meet",
+								"01JYZQP30R7PC242E9WSSDXK6W"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quizzes",
+			"item": [
+				{
+					"name": "Quizzes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZ9PFQ25E4MWEMBW2PH2PYQP/quizzes",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZ9PFQ25E4MWEMBW2PH2PYQP",
+								"quizzes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"section_id\": \"\",\r\n    \"title\": \"Final Term Quiz\",\r\n    \"instructions\": \"Answer all the questions carefully.\",\r\n    \"total_marks\": 100,\r\n    \"pass_marks\": 40,\r\n    \"duration\": 60,\r\n    \"published\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZ9PFQ0JCTKSRYJ3FC8B6S66/quizzes",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZ9PFQ0JCTKSRYJ3FC8B6S66",
+								"quizzes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZAN5H01JMD643STFT3XYYCW/quizzes/01JZAN5H17MJE7SH5BQKM62BMM",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZAN5H01JMD643STFT3XYYCW",
+								"quizzes",
+								"01JZAN5H17MJE7SH5BQKM62BMM"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Final Term Quiz update\",\r\n  \"instructions\": \"Answer all the questions carefully.\",\r\n  \"total_marks\": 100,\r\n  \"pass_marks\": 40,\r\n  \"duration\": 60,\r\n  \"published\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZ9PFQ25E4MWEMBW2PH2PYQP/quizzes/01JZ9PFQ3BGXYJZYFNJ5S345DX",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZ9PFQ25E4MWEMBW2PH2PYQP",
+								"quizzes",
+								"01JZ9PFQ3BGXYJZYFNJ5S345DX"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZ9PFQ25E4MWEMBW2PH2PYQP/quizzes/01JZ9ZS51A3GQ1FBKA9BSEHPTR",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZ9PFQ25E4MWEMBW2PH2PYQP",
+								"quizzes",
+								"01JZ9ZS51A3GQ1FBKA9BSEHPTR"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"answers\": [\r\n    {\r\n      \"question_id\": \"01jz8h4qjd1550zjffm4cb8pr3\",\r\n      \"option_id\": \"01jz8h4qjh5y6671d9da9c6nrj\"\r\n    },\r\n    {\r\n      \"question_id\": \"01jz8h4qk4cnjhxar7hyv9tmbj\",\r\n      \"option_id\": \"01jz8h4qk9br6c8fjg06j8h9sj\"\r\n    },\r\n    {\r\n      \"question_id\": \"01jz8h4qkrxqbfgr426nmqzfbs\",\r\n      \"option_id\": \"01jz8h4qkvh7a1znrz96k99arz\"\r\n    },\r\n    {\r\n      \"question_id\": \"01jz8h4qmbbdq456y1m0dgh5qp\",\r\n      \"option_id\": \"01jz8h4qmftfa18x2nv3qabr8p\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/quizzes/01JZ8H3SJRMTBGBBZWPP0W0N9X/submit",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quizzes",
+								"01JZ8H3SJRMTBGBBZWPP0W0N9X",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Questions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZC03DQ912G9QN8DQERCMHCS/quizzes/01JZC03DRH3745HHTH6M9FM9JY/questions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZC03DQ912G9QN8DQERCMHCS",
+								"quizzes",
+								"01JZC03DRH3745HHTH6M9FM9JY",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Questions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"questions\": [\r\n    {\r\n     \"question\": \"What does HTML stand for?\",\r\n     \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"option\": \"Hyper Text Markup Language\", \"correct\": true },\r\n        { \"option\": \"Home Tool Markup Language\", \"correct\": false },\r\n        { \"option\": \"Hyperlinks and Text Markup Language\", \"correct\": false },\r\n        { \"option\": \"Hyperlinking Text Main Language\", \"correct\": false }\r\n      ]\r\n    },\r\n    {\r\n      \"question\": \"What does CSS stand for?\",\r\n      \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"option\": \"Cascading Style Sheets\", \"correct\": true },\r\n        { \"option\": \"Computer Style Sheets\", \"correct\": false },\r\n        { \"option\": \"Creative Style System\", \"correct\": false },\r\n        { \"option\": \"Colorful Style Sheets\", \"correct\": false }\r\n      ]\r\n    },\r\n    {\r\n      \"question\": \"What is PHP?\",\r\n      \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"option\": \"A server-side language\", \"correct\": true },\r\n        { \"option\": \"A database\", \"correct\": false },\r\n        { \"option\": \"A markup language\", \"correct\": false },\r\n        { \"option\": \"An operating system\", \"correct\": false }\r\n      ]\r\n    },\r\n    {\r\n      \"question\": \"What does Laravel use for routing?\",\r\n      \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"option\": \"Route::\", \"correct\": true },\r\n        { \"option\": \"App::\", \"correct\": false },\r\n        { \"option\": \"Path::\", \"correct\": false },\r\n        { \"option\": \"Router::\", \"correct\": false }\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZC2B48HNDE1AXQBFBD9KZ61/quizzes/01JZC2B49Q2EG9EBGRNMEFHHVX/questions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZC2B48HNDE1AXQBFBD9KZ61",
+								"quizzes",
+								"01JZC2B49Q2EG9EBGRNMEFHHVX",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Questions Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"questions\": [\r\n    {\r\n     \"question\": \"What does HTML stand for?\",\r\n     \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"text\": \"Hyper Text Markup Language\", \"correct\": true },\r\n        { \"text\": \"Home Tool Markup Language\", \"correct\": false },\r\n        { \"text\": \"Hyperlinks and Text Markup Language\", \"correct\": false },\r\n        { \"text\": \"Hyperlinking Text Main Language\", \"correct\": false }\r\n      ]\r\n    },\r\n    {\r\n      \"question\": \"What does CSS stand for?\",\r\n      \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"text\": \"Cascading Style Sheets\", \"correct\": true },\r\n        { \"text\": \"Computer Style Sheets\", \"correct\": false },\r\n        { \"text\": \"Creative Style System\", \"correct\": false },\r\n        { \"text\": \"Colorful Style Sheets\", \"correct\": false }\r\n      ]\r\n    },\r\n    {\r\n      \"question\": \"What is PHP?\",\r\n      \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"text\": \"A server-side language\", \"correct\": true },\r\n        { \"text\": \"A database\", \"correct\": false },\r\n        { \"text\": \"A markup language\", \"correct\": false },\r\n        { \"text\": \"An operating system\", \"correct\": false }\r\n      ]\r\n    },\r\n    {\r\n      \"question\": \"What does Laravel use for routing?\",\r\n      \"type\": \"mcq\",\r\n      \"mark\": 1,\r\n      \"options\": [\r\n        { \"option\": \"Route::\", \"correct\": true },\r\n        { \"option\": \"App::\", \"correct\": false },\r\n        { \"option\": \"Path::\", \"correct\": false },\r\n        { \"option\": \"Router::\", \"correct\": false }\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/course/01JZAN5H01JMD643STFT3XYYCW/quizzes/01JZAN5H17MJE7SH5BQKM62BMM/questions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"01JZAN5H01JMD643STFT3XYYCW",
+								"quizzes",
+								"01JZAN5H17MJE7SH5BQKM62BMM",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leaderboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/quiz/01JYAPH8ESS3TBNYF4GRX7PVCE/leaderboard",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"quiz",
+								"01JYAPH8ESS3TBNYF4GRX7PVCE",
+								"leaderboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/orders/01JZ7P78GC7PCCPQWYFQKKFG1B",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"01JZ7P78GC7PCCPQWYFQKKFG1B"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/reviews",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Ashik\",\r\n    \"last_name\": \"Ahmed\",\r\n    \"title\": \"Biology Teacher\",\r\n    \"email\": \"info@ashikahmed.net\",\r\n    \"phone\": \"01911742233\",\r\n    \"username\": \"ashikahmed\",\r\n    \"about\": \"Passionate Biology teacher dedicated to making science engaging and accessible for students. Committed to fostering curiosity and critical thinking through interactive learning.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users/01JZ532PXDWBPFCY3H38220Y4W",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"01JZ532PXDWBPFCY3H38220Y4W"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('TOKEN', \"\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users/gggg",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"gggg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users/01JZ2R8JRVFFK4D3Y3TK396RJ1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"01JZ2R8JRVFFK4D3Y3TK396RJ1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "01710000003",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Ashik\",\r\n    \"last_name\": \"Ahmed\",\r\n    \"title\": \"Biology Teacher\",\r\n    \"email\": \"info@ashikahmed.net\",\r\n    \"phone\": \"01911742233\",\r\n    \"username\": \"ashikahmed\",\r\n    \"about\": \"Passionate Biology teacher dedicated to making science engaging and accessible for students. Committed to fostering curiosity and critical thinking through interactive learning.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users/01JZ532PXDWBPFCY3H38220Y4W",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"01JZ532PXDWBPFCY3H38220Y4W"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('TOKEN', \"\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users/gggg",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"gggg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/users/01JZ2R8JRVFFK4D3Y3TK396RJ1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"01JZ2R8JRVFFK4D3Y3TK396RJ1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notices",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/notices",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Exam Schedule Published\",\r\n  \"body\": \"Final exam will be held on 25th July 2025.\",\r\n  \"type\": \"notice\",\r\n  \"target\": \"student\",\r\n  \"published\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/notices",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/notices/01JZCFYKSVA7H2H1TFA339NE7C",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"notices",
+								"01JZCFYKSVA7H2H1TFA339NE7C"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_method\": \"PUT\",\r\n    \"status\": \"paid\",\r\n    \"paid_at\": \"2025-07-04T10:00:00Z\",\r\n    \"trx_id\": \"TRX12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/notices/01JZCFYKSVA7H2H1TFA339NE7C",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notices",
+								"01JZCFYKSVA7H2H1TFA339NE7C"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_method\": \"PUT\",\r\n    \"status\": \"paid\",\r\n    \"paid_at\": \"2025-07-04T10:00:00Z\",\r\n    \"trx_id\": \"TRX12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/notices/01JZCFYKSVA7H2H1TFA339NE7C",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notices",
+								"01JZCFYKSVA7H2H1TFA339NE7C"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notices",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_method\": \"PUT\",\r\n    \"status\": \"paid\",\r\n    \"paid_at\": \"2025-07-04T10:00:00Z\",\r\n    \"trx_id\": \"TRX12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/notices",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"notices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payouts",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/payouts?status=created&search=01711123456&page=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"payouts"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "created"
+								},
+								{
+									"key": "search",
+									"value": "01711123456"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 100,\r\n  \"payment_method\": \"bkash\",\r\n  \"account\": \"01711123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/payouts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"payouts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/payouts/01JZCFYKSVA7H2H1TFA339NE7C",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"payouts",
+								"01JZCFYKSVA7H2H1TFA339NE7C"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_method\": \"PUT\",\r\n    \"status\": \"paid\",\r\n    \"paid_at\": \"2025-07-04T10:00:00Z\",\r\n    \"trx_id\": \"TRX12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/payouts/01JZCFYKSVA7H2H1TFA339NE7C",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payouts",
+								"01JZCFYKSVA7H2H1TFA339NE7C"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "General",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/Ashik Ahmed/Downloads/logo.png"
+								},
+								{
+									"key": "favicon",
+									"type": "file",
+									"src": "/C:/Users/Ashik Ahmed/Downloads/logo.png"
+								},
+								{
+									"key": "theme_color",
+									"value": "#0d9488",
+									"type": "text"
+								},
+								{
+									"key": "dark_mode",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "site_name",
+									"value": "Grameen School",
+									"type": "text"
+								},
+								{
+									"key": "tagline",
+									"value": "Learn. Grow. Succeed",
+									"type": "text"
+								},
+								{
+									"key": "default_language",
+									"value": "en",
+									"type": "text"
+								},
+								{
+									"key": "timezone",
+									"value": "Asia/Dhaka",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "https://grameenschool.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/general",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"general"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"০১৭১২২৫০৯৫৭\",\r\n    \"email\": \"grameenschoolju@gmail.com\",\r\n    \"address\": \"আমবাগান, সেনওয়ালিয়া-১৩৪৪, <br> থানাঃ আশুলিয়া, উপজেলাঃ সাভার, ঢাকা ।\",\r\n    \"facebook\": \"https://facebook.com/grameenschool\",\r\n    \"twitter\": \"https://twitter.com/grameenschool\",\r\n    \"linkedin\": \"https://linkedin.com/in/grameenschool\",\r\n    \"youtube\": \"https://youtube.com/grameenschool\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/contact",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SEO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "meta_title",
+									"value": "Best Online Learning Platform - Grameen School",
+									"type": "text"
+								},
+								{
+									"key": "meta_description",
+									"value": "Join Grameen School and start learning from the best instructors online.",
+									"type": "text"
+								},
+								{
+									"key": "meta_keywords",
+									"value": "online learning, elearning, grameen school",
+									"type": "text"
+								},
+								{
+									"key": "og_image",
+									"type": "file",
+									"src": "postman-cloud:///1ef5d337-671f-45f0-92fa-33dd327c8d61"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/seo",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"seo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"currency\": \"BDT\",\r\n  \"currency_symbol\": \"৳\",\r\n  \"gateways\": {\r\n    \"bkash\": {\r\n      \"enabled\": true,\r\n      \"app_key\": \"your_app_key\",\r\n      \"app_secret\": \"your_app_secret\",\r\n      \"username\": \"merchant_user\",\r\n      \"password\": \"merchant_pass\"\r\n    }\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/payment",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Legal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"privacy_policy\": \"https://grameenschool.com/privacy-policy\",\r\n  \"terms_and_conditions\": \"https://grameenschool.com/terms\",\r\n  \"refund_policy\": \"https://grameenschool.com/refund\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/legal",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"legal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mobile App",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"android_url\": \"https://play.google.com/store/apps/details?id=com.grameenschoolbd.app\",\r\n  \"ios_url\": \"https://apps.apple.com/app/id123456789\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/mobile_app",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mobile_app"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Maintenance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mode\": false,\r\n  \"message\": \"We are under maintenance. Please come back later.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/maintenance",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"maintenance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seed",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/seed",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"seed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reboot",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/reboot",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"reboot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "storage link",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/storage-link",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"storage-link"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
