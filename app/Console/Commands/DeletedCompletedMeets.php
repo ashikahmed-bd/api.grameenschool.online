@@ -28,7 +28,7 @@ class DeletedCompletedMeets extends Command
      */
     public function handle()
     {
-        $count = Meet::query()->where('status', MeetStatus::COMPLETED->value)
+        $count = Meet::query()->where('status', MeetStatus::ENDED->value)
             ->where('end_time', '<', Carbon::now()->subDays(7))
             ->delete();
 
