@@ -126,24 +126,22 @@ class UserController extends Controller
      */
     public function search(Request $request)
     {
-        $users = User::query();
+        $users = User::query()
+            ->when($request->filled('role'), function ($q) use ($request) {
+                $q->where('role', $request->role);
+            })
+            ->when($request->filled('query'), function ($q) use ($request) {
+                $search = $request->get('query');
 
-        if ($request->filled('role')) {
-            $users->where('role', $request->input('role'));
-        }
+                $q->where(function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('phone', 'like', "%{$search}%")
+                        ->orWhere('email', 'like', "%{$search}%");
+                });
+            })
+            ->latest()
+            ->get();
 
-        if ($request->filled('query')) {
-            $search = $request->input('query');
-
-            $users->where(function ($q) use ($search) {
-                $q->where('name', 'like', "%{$search}%")
-                    ->orWhere('phone', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%");
-            });
-        }
-
-        $results = $users->orderBy('created_at', 'asc')->get();
-
-        return UserResource::collection($results);
+        return UserResource::collection($users);
     }
 }

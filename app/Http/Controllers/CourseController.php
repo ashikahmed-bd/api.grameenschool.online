@@ -225,7 +225,7 @@ class CourseController extends Controller
                         $author->where('name', 'LIKE', "%{$query}%");
                     });
             })
-            ->orderBy('created_at', 'desc')
+            ->latest()
             ->get();
 
         return CourseResource::collection($courses);

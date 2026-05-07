@@ -20,7 +20,19 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $orders = Order::query()->orderByDesc('created_at')->paginate($request->limit);
+        $status = $request->query('status');
+        $invoiceId = $request->query('invoice_id');
+
+        $orders = Order::query()
+            ->when($status, function ($query) use ($status) {
+                $query->where('status', $status);
+            })
+            ->when($invoiceId, function ($query) use ($invoiceId) {
+                $query->where('invoice_id', 'like', '%' . $invoiceId . '%');
+            })
+            ->orderByDesc('created_at')
+            ->paginate($request->query('limit', 10));
+
         return OrderResource::collection($orders);
     }
 
@@ -61,8 +73,8 @@ class OrderController extends Controller
                 'subtotal'       => $subtotal,
                 'discount'       => $discount,
                 'total'          => $total,
-                'paid_amount'    => 0,
-                'due_amount'     => $total,
+                'paid'    => 0,
+                'due'     => $total,
                 'payment_method' => 'manual',
                 'status'         => OrderStatus::PENDING,
             ]);

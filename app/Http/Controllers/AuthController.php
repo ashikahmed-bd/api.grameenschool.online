@@ -91,6 +91,7 @@ class AuthController extends Controller
                 'email' => $user->email,
                 'avatar_url' => $user->avatar_url,
                 'role' => $user->role,
+                'balance' => money($user->balance, config('money.defaults.currency'), true)->format(),
             ],
         ], Response::HTTP_OK);
     }

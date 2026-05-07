@@ -30,8 +30,8 @@ class CheckoutController extends Controller
             'subtotal' => $cart->subtotal,
             'discount' => $cart->discount,
             'total' => $cart->total,
-            'paid_amount'    => 0,
-            'due_amount'     => $cart->total,
+            'paid'    => 0,
+            'due'     => $cart->total,
             'status' => OrderStatus::PENDING,
         ]);
 

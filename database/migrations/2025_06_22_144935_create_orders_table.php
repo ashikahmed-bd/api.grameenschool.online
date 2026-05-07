@@ -23,8 +23,8 @@ return new class extends Migration
             $table->decimal('discount', 10, 2)->default(0);
             $table->decimal('total', 10, 2);
 
-            $table->decimal('paid_amount', 10, 2)->default(0);
-            $table->decimal('due_amount', 10, 2);
+            $table->decimal('paid', 10, 2)->default(0);
+            $table->decimal('due', 10, 2);
 
             $table->string('payment_method')->default('cash');
             $table->string('status')->default(OrderStatus::PENDING);

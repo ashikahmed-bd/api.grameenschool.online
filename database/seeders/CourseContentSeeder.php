@@ -324,7 +324,7 @@ class CourseContentSeeder extends Seeder
             'user_id' => $student->id,
             'order_id' => $order->id,
             'progress' => 0,
-            'status'   => EnrollmentStatus::LOCKED,
+            'status'   => EnrollmentStatus::ONGOING,
             'enrolled_at' => now(),
         ]);
 
