@@ -6,26 +6,22 @@ use App\Enums\CourseLevel;
 use App\Enums\CourseStatus;
 use App\Enums\EnrollmentStatus;
 use App\Enums\Provider;
-use App\Enums\UserRole;
 use App\Http\Requests\CourseRequest;
 use App\Http\Resources\CategoryResource;
-use App\Http\Resources\CourseOverviewResource;
 use App\Http\Resources\CourseResource;
-use App\Http\Resources\InstructorResource;
 use App\Http\Resources\LectureResource;
 use App\Http\Resources\ReviewResource;
 use App\Http\Resources\SectionResource;
 use App\Http\Resources\UserResource;
+use App\Models\Batch;
 use App\Models\Category;
 use App\Models\Collection;
 use App\Models\Course;
 use App\Models\Enrollment;
+use App\Models\Grade;
 use App\Models\Lecture;
 use App\Models\User;
-use App\Notifications\CreateCourseNotification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
@@ -38,7 +34,7 @@ class CourseController extends Controller
     {
         $courses = Course::query();
 
-        $paginated = $courses->withCount('enrollments', 'reviews', 'lectures')
+        $paginated = $courses->withCount('students', 'reviews', 'lectures')
             ->orderByDesc('created_at')
             ->paginate();
 
@@ -55,33 +51,34 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $course = new Course();
+
+        $course->user_id = $request->user()->id;
+        $course->category_id = Category::getId($request->category_id);
+        $course->subcategory_id = Category::getId($request->subcategory_id);
+        $course->collection_id = Collection::getId($request->collection_id);
+        $course->grade_id = Grade::getId($request->grade_id);
+        $course->batch_id = Batch::getId($request->batch_id);
+
         $course->title = $request->title;
+        $course->slug = Str::slug($request->title);
         $course->overview = $request->overview;
         $course->description = $request->description;
+
         $course->meta_title = $request->meta_title;
         $course->meta_description = $request->meta_description;
         $course->meta_keywords = $request->meta_keywords;
-        $course->duration = $request->duration;
-        $course->is_feature = $request->is_feature;
-        $course->level = $request->level ?? CourseLevel::ALL;
+        $course->canonical_url = $request->canonical_url;
+
+        $course->base_price = $request->base_price;
         $course->price = $request->price;
-        $course->discount_type = $request->discount_type;
-        $course->discount_amount = $request->discount_amount;
-        $course->discount_starts_at = $request->discount_starts_at;
-        $course->discount_ends_at = $request->discount_ends_at;
+        $course->access_days = $request->access_days;
+        $course->level = $request->level ?? CourseLevel::ALL;
+        $course->is_feature = $request->is_feature;
+
         $course->learnings = $request->learnings;
         $course->requirements = $request->requirements;
-        $course->features = $request->features;
+        $course->includes = $request->includes;
 
-        $course->published_at = $request->published_at;
-        $course->category_id = $request->category_id;
-
-        $course->video_id = $request->video_id;
-        $course->provider = $request->provider ?? Provider::YOUTUBE;
-        $course->user_id = $request->user()->id;
-        $course->category_id = $request->category_id;
-        $course->subcategory_id = $request->subcategory_id;
-        $course->bundle_id = $request->bundle_id;
         $course->status = $request->status;
         $course->save();
 

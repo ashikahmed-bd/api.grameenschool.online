@@ -40,30 +40,38 @@ class CourseRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'category_id' => 'required|exists:categories,hashid',
+            'subcategory_id' => 'nullable|exists:categories,hashid',
+            'collection_id' => 'nullable|exists:collections,hashid',
+            'grade_id' => 'nullable|exists:grades,hashid',
+            'batch_id' => 'nullable|exists:batches,hashid',
+
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'overview' => 'required|string',
             'description' => 'nullable|string',
+
+            'meta_title' => 'required|string',
+            'meta_description' => 'required|string',
+            'meta_keywords' => 'required|string',
+            'canonical_url' => 'required|string',
+
+            'base_price' => 'required|numeric|min:0',
+            'price' => 'nullable|numeric|min:0',
+            'access_days' => 'nullable|integer|min:1',
             'level' => 'required|string',
-            'duration' => 'required|integer|min:1',
             'is_feature' => 'required|boolean',
-            'price'   => 'required|numeric|min:0',
+
             'learnings' => 'nullable|array',
             'learnings.*' => 'string|max:255',
 
             'requirements' => 'nullable|array',
             'requirements.*' => 'string|max:255',
 
-            'published_at' => 'nullable|date',
-            'video_id' => 'nullable|string',
-            'provider' => 'nullable|string',
+            'includes' => 'nullable|array',
+            'includes.*' => 'string|max:255',
+
             'status' => ['required', Rule::enum(CourseStatus::class)],
-
-            'instructors' => 'required|array',
-
-            'category_id' => 'required|ulid|exists:categories,id',
-            'subcategory_id' => 'nullable|ulid|exists:categories,id',
-            'bundle_id' => 'nullable|ulid|exists:bundles,id',
         ];
     }
 }
