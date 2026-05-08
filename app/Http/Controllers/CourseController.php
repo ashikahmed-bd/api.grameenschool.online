@@ -146,6 +146,8 @@ class CourseController extends Controller
 
         $course->base_price = $request->base_price;
         $course->price = $request->price;
+        $course->intro_id = $request->intro_id;
+        $course->status = $request->status;
 
         $course->update();
 

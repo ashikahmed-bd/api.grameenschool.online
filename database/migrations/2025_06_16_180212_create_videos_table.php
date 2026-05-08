@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\VideoStatus;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +14,7 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string('hashid')->nullable();
-            $table->foreignId('lecture_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('lecture_id')->unique()->constrained()->cascadeOnDelete();
 
             $table->string('title')->nullable()->comment('optional: video title');
             $table->string('video_id')->nullable()->comment('e.g., YouTube/Vimeo ID');

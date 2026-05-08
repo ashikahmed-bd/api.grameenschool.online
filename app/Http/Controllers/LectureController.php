@@ -15,6 +15,7 @@ use App\Models\Section;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
@@ -72,11 +73,7 @@ class LectureController extends Controller
         $lecture->update([
             'title' => $request->title,
             'type' => $request->type ?? LectureType::VIDEO,
-            'overview' => $request->overview ?? null,
-            'provider' => $request->provider ?? Provider::YOUTUBE,
-            'video_id' => $request->video_id,
-            'duration' => $request->duration ?? null,
-            'is_preview' => $request->is_preview ?? false,
+            'body' => null,
         ]);
 
         return response()->json([
@@ -134,57 +131,55 @@ class LectureController extends Controller
 
     public function video(Request $request, Course $course, Lecture $lecture)
     {
-        $receiver = new FileReceiver(
-            'file',
-            $request,
-            HandlerFactory::classFromRequest($request)
-        );
 
-        if (! $receiver->isUploaded()) {
-            throw new UploadMissingFileException();
-        }
-
-        $save = $receiver->receive();
-
-        // Progress
-        if (! $save->isFinished()) {
-            return response()->json([
-                'status' => VideoStatus::UPLOADING,
-                'done'   => $save->handler()->getPercentageDone(),
-            ]);
-        }
-
-        $file = $save->getFile();
-
-        // remove old video safely
-        $lecture->video?->delete();
-
-        // move video to temporary directory. filename is automatically generated
-        $file_name = $file->getClientOriginalName();
-        $temp_path = $file->store($lecture->id, config('app.videos.temp'));
-
-        $video = $lecture->video()->create([
-            'file_name'   => $file_name,
-            'stream_disk' => config('app.videos.stream'),
-            'temp_path'   => $temp_path,
-            'temp_disk'   => config('app.videos.temp'),
-            'mime_type'   => $file->getMimeType(),
-            'status'      => VideoStatus::UPLOADING,
-            'progress'    => 0,
-            'uploaded_at' => now(),
+        $request->validate([
+            'video_id' => ['required', 'string'],
+            'provider' => ['required', 'string'],
         ]);
 
-        // Dispatch async processing job
-        dispatch(new ProcessVideoJob($video));
+        $lecture->video()->updateOrCreate(
+            ['lecture_id' => $lecture->id],
+            [
+                'title' => $lecture->title,
+                'video_id' => $request->video_id,
+                'provider' => $request->provider,
+            ]
+        );
+
+        $duration = 0;
+
+        if ($request->provider === 'youtube') {
+            $response = Http::get('https://www.googleapis.com/youtube/v3/videos', [
+                'id' => $request->video_id,
+                'part' => 'contentDetails',
+                'key' => config('services.youtube.api_key'),
+            ]);
+
+            if ($response->successful()) {
+                $items = $response->json('items');
+                $iso = data_get($items, '0.contentDetails.duration');
+
+                if ($iso) {
+                    $d = new \DateInterval($iso);
+                    $duration = (($d->d * 24 + $d->h) * 60 + $d->i) * 60 + $d->s;
+                }
+            }
+        } elseif ($request->provider === 'vimeo') {
+            $response = Http::get('https://vimeo.com/api/oembed.json', [
+                'url' => 'https://vimeo.com/' . $request->video_id,
+            ]);
+
+            if ($response->successful()) {
+                $duration = (int) $response->json('duration', 0);
+            }
+        }
 
         $lecture->update([
             'type' => LectureType::VIDEO,
             'body' => null,
+            'duration' => $duration,
         ]);
 
-        return response()->json([
-            'status' => VideoStatus::PROCESSING,
-            'video'   => $video,
-        ]);
+        return LectureResource::make($lecture->refresh());
     }
 }

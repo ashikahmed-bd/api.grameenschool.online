@@ -179,7 +179,7 @@ Route::scopeBindings()->group(function () {
                 Route::delete('{lecture}', [LectureController::class, 'destroy']);
 
                 Route::put('{lecture}/article', [LectureController::class, 'article']);
-                Route::post('{lecture}/video', [LectureController::class, 'video']);
+                Route::put('{lecture}/video', [LectureController::class, 'video']);
             });
         });
 

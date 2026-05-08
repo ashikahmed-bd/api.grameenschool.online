@@ -35,16 +35,12 @@ return [
         ],
     ],
 
-
-    // SSLCommerz Configuration
     'sslcommerz' => [
         'store_id' => env('SSLCOMMERZ_STORE_ID'),
         'store_password' => env('SSLCOMMERZ_STORE_PASSWORD'),
         'sandbox' => env('SSLCOMMERZ_SANDBOX', true),
     ],
 
-
-    // bKash Configuration
     'bkash' => [
         'app_key'       => env('BKASH_APP_KEY'),
         'app_secret'    => env('BKASH_APP_SECRET'),
@@ -53,10 +49,8 @@ return [
         'sandbox'       => env('BKASH_SANDBOX', true),
     ],
 
-    'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID', ''),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET', ''),
-        'redirect' => env('GOOGLE_REDIRECT_URI', ''),
+    'youtube' => [
+        'api_key' => env('YOUTUBE_API_KEY', ''),
     ],
 
     'zoom' => [
