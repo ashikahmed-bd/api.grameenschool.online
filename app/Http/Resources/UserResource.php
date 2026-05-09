@@ -22,20 +22,13 @@ class UserResource extends JsonResource
             'email'               => $this->email,
             'email_verified_at'   => $this->email_verified_at,
             'phone'               => $this->phone,
+            'phone_verified_at'   => $this->phone_verified_at,
             'avatar_url'          => $this->avatar_url,
             'active'              => (bool) $this->active,
             'role'                => $this->role,
             'balance'             => $this->balance,
             'balance_formatted'   => $this->balance_formatted,
-
-            'institution'   => $this->institution,
-            'specialization'   => $this->specialization,
-            'bio'   => $this->bio,
-            'grade'   => $this->grade,
-            'group'   => $this->group,
-            'session'   => $this->session,
             'preferred_language'   => $this->preferred_language,
-
             'created_at' => [
                 'human' => $this->created_at->diffForHumans(),
                 'timestamp' => $this->created_at,

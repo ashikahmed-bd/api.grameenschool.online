@@ -12,6 +12,7 @@ use App\Models\OrderItem;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class OrderController extends Controller
 {
@@ -45,7 +46,6 @@ class OrderController extends Controller
         $request->validate([
             'user_id'   => 'required|exists:users,hashid',
             'course_id' => 'required|exists:courses,hashid',
-            'quantity'  => 'nullable|integer|min:1',
             'discount'  => 'nullable|numeric|min:0',
         ]);
 
@@ -54,11 +54,9 @@ class OrderController extends Controller
             $user = User::where('hashid', $request->user_id)->firstOrFail();
             $course = Course::where('hashid', $request->course_id)->firstOrFail();
 
-            $qty = $request->quantity ?? 1;
             $discount = $request->discount ?? 0;
 
-            $subtotal = $course->price * $qty;
-            $total = max($subtotal - $discount, 0);
+            $total = max($course->price - $discount, 0);
 
             // prevent duplicate enrollment
             if (Enrollment::where('user_id', $user->id)
@@ -70,7 +68,7 @@ class OrderController extends Controller
 
             $order = Order::create([
                 'user_id'        => $user->id,
-                'subtotal'       => $subtotal,
+                'subtotal'       => $course->price,
                 'discount'       => $discount,
                 'total'          => $total,
                 'paid'    => 0,
@@ -82,8 +80,9 @@ class OrderController extends Controller
             OrderItem::create([
                 'order_id'  => $order->id,
                 'course_id' => $course->id,
-                'quantity'  => $qty,
+                'quantity'  => 1,
                 'price'     => $course->price,
+                'total'     => $course->price * 1,
             ]);
 
             Enrollment::create([
@@ -99,7 +98,7 @@ class OrderController extends Controller
                 'success' => true,
                 'message' => 'Enrollment successful. Your access has been activated.',
                 'order'   => $order->load('items')
-            ]);
+            ], Response::HTTP_CREATED);
         });
     }
 
@@ -108,7 +107,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        $order->load(['items.course', 'user', 'payment']);
+        $order->load(['items.course', 'user', 'payments']);
         return OrderResource::make($order);
     }
 

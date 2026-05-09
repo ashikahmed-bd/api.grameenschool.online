@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('owner_id')->nullable()->constrained('users')->nullOnDelete();
 
             $table->string('code', 100)->unique();
+            $table->enum('type', ['percent', 'fixed']);
 
             $table->unsignedInteger('discount')
                 ->comment('Discount percentage e.g 10%');
@@ -26,8 +27,6 @@ return new class extends Migration
             $table->unsignedInteger('commission')
                 ->nullable()
                 ->comment('Affiliate commission percentage e.g 20%');
-
-            $table->enum('type', ['percent', 'fixed']);
 
             $table->unsignedInteger('usage_limit')->nullable();
             $table->unsignedInteger('used_count')->default(0);

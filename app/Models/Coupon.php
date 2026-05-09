@@ -25,6 +25,12 @@ class Coupon extends Model
         return $this->belongsTo(Course::class);
     }
 
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+
     protected function code(): Attribute
     {
         return Attribute::make(

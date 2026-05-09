@@ -212,7 +212,7 @@ class PaymentController extends Controller
             'method'   => ['required', new Enum(PaymentMethod::class)],
         ]);
 
-        if ($request->amount > $order->due_amount) {
+        if ($request->amount > $order->due) {
             return response()->json([
                 'message' => 'Over payment not allowed'
             ], 422);
@@ -223,17 +223,16 @@ class PaymentController extends Controller
             'user_id'  => $order->user_id,
             'invoice_id' => $order->invoice_id,
             'transaction_id' => uniqid('trx_'),
-
-            'method' => 'bkash',
             'amount' => $request->amount,
+            'method' => $request->method,
             'status' => PaymentStatus::SUCCESS,
             'paid_at' => now(),
         ]);
 
-        $order->paid_amount += $request->amount;
-        $order->due_amount = $order->total - $order->paid_amount;
+        $order->paid += $request->amount;
+        $order->due = $order->total - $order->paid;
 
-        if ($order->paid_amount >= $order->total) {
+        if ($order->paid >= $order->total) {
             $order->status = OrderStatus::PAID;
             $order->paid_at = now();
 

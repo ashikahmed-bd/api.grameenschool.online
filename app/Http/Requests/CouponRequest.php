@@ -30,13 +30,16 @@ class CouponRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'course_id'  => 'nullable|exists:courses,hashid',
+            'owner_id'  => 'nullable|exists:users,hashid',
             'code'       => ['required', 'string', 'max:50', Rule::unique('coupons', 'code')->ignore($this->coupon)],
-            'type'       => 'required|in:percentage,fixed',
-            'value'      => 'required|numeric|min:0',
-            'max_uses'   => 'nullable|integer|min:1',
-            'expires_at' => ['nullable', 'date', 'date_format:Y-m-d H:i:s'],
-            'active'     => 'boolean',
-            'course_id'  => 'nullable|exists:courses,id',
+            'type'         => ['required', 'in:percent,fixed'],
+            'discount'     => ['required', 'numeric', 'min:0'],
+            'commission'   => ['nullable', 'numeric', 'min:0'],
+            'usage_limit'  => ['required', 'integer', 'min:1'],
+            'starts_at'    => ['nullable', 'date'],
+            'expires_at'   => ['nullable', 'date', 'after_or_equal:starts_at'],
+            'active'       => ['boolean'],
         ];
     }
 }

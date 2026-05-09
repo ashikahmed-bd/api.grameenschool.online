@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NoticeRequest;
 use App\Http\Resources\NoticeResource;
-use App\Http\Resources\NotificationResource;
 use App\Jobs\SendNoticeNotificationJob;
 use App\Models\Notice;
 use Illuminate\Http\Request;
@@ -18,7 +17,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notices = Notice::query()->with(['creator', 'course'])->orderByDesc('created_at')->paginate();
+        $notices = Notice::query()->orderByDesc('created_at')->paginate();
         return NoticeResource::collection($notices);
     }
 
@@ -33,8 +32,6 @@ class NoticeController extends Controller
             'type' => $request->type,
             'target' => $request->target,
             'published' => $request->published ?? false,
-            'created_by' => Auth::id(),
-
         ]);
 
         SendNoticeNotificationJob::dispatch($notice);

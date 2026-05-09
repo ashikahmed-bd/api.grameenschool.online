@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GoogleController;
@@ -213,6 +214,20 @@ Route::scopeBindings()->group(function () {
         Route::put('collections/{collection}', [CollectionController::class, 'update']);
         Route::delete('collections/{collection}', [CollectionController::class, 'destroy']);
 
+        // benefits
+        Route::get('benefits', [BenefitController::class, 'index']);
+        Route::post('benefit', [BenefitController::class, 'store']);
+        Route::get('benefit/{benefit}', [BenefitController::class, 'show']);
+        Route::put('benefit/{benefit}', [BenefitController::class, 'update']);
+        Route::delete('benefit/{benefit}', [BenefitController::class, 'destroy']);
+
+
+        Route::get('coupons', [CouponController::class, 'index']);
+        Route::post('coupons', [CouponController::class, 'store']);
+        Route::get('coupons/{coupon}', [CouponController::class, 'show']);
+        Route::put('coupons/{coupon}', [CouponController::class, 'update']);
+        Route::delete('coupons/{coupon}', [CouponController::class, 'destroy']);
+
         // Reviews
         Route::get('reviews', [ReviewController::class, 'index']);
         Route::post('reviews', [ReviewController::class, 'store']);
@@ -243,12 +258,7 @@ Route::scopeBindings()->group(function () {
         Route::put('users/{user}', [UserController::class, 'update']);
         Route::delete('users/{user}', [UserController::class, 'destroy']);
 
-        // benefits
-        Route::get('benefits', [BenefitController::class, 'index']);
-        Route::post('benefit', [BenefitController::class, 'store']);
-        Route::get('benefit/{benefit}', [BenefitController::class, 'show']);
-        Route::put('benefit/{benefit}', [BenefitController::class, 'update']);
-        Route::delete('benefit/{benefit}', [BenefitController::class, 'destroy']);
+
 
         // contact
         Route::get('contacts', [ContactController::class, 'index']);

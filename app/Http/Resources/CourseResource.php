@@ -70,11 +70,16 @@ class CourseResource extends JsonResource
             'status' => $this->status,
             'created_at' => [
                 'human' => $this->created_at->diffForHumans(),
-                'timestamp' => $this->created_at,
+                'timestamp' => $this->created_at->toISOString(),
+                'formatted' => $this->created_at->format('Y-m-d H:i:s'),
+                'date' => $this->created_at->format('d M Y'),
             ],
+
             'updated_at' => [
                 'human' => $this->updated_at->diffForHumans(),
-                'timestamp' => $this->updated_at,
+                'timestamp' => $this->updated_at->toISOString(),
+                'formatted' => $this->updated_at->format('Y-m-d H:i:s'),
+                'date' => $this->updated_at->format('d M Y'),
             ],
             'average_rating' => round($this->reviews_avg_rating, 1),
             'reviews_count' => $this->whenCounted('reviews'),

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Throwable;
-use App\Models\Meet;
-use App\Enums\MeetStatus;
 use App\Enums\MeetProvider;
-use Illuminate\Http\Request;
+use App\Enums\MeetStatus;
+use App\Http\Resources\MeetResource;
+use App\Models\Course;
+use App\Models\Meet;
+use App\Models\User;
+use App\Services\GoogleMeetService;
 use App\Services\ZoomService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
-use App\Services\GoogleMeetService;
-use App\Http\Resources\MeetResource;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 class MeetController extends Controller
 {
@@ -21,7 +23,7 @@ class MeetController extends Controller
      */
     public function index()
     {
-        $liveClass = Meet::with(['course', 'host'])->orderByDesc('start_time')->paginate();
+        $liveClass = Meet::with(['course', 'host'])->orderByDesc('time')->paginate();
         return MeetResource::collection($liveClass);
     }
 
@@ -32,103 +34,47 @@ class MeetController extends Controller
     {
 
         $request->validate([
-            'course_id' => 'nullable|exists:courses,id',
-            'host_id' => 'required|exists:users,id',
+            'course_id' => 'nullable|exists:courses,hashid',
+            'host_id' => 'required|exists:users,hashid',
             'topic' => ['required', 'string', 'max:255'],
-            'start_date'  => ['required', 'date'],
-            'start_time'  => ['required', 'date_format:H:i'],
-            'duration' => 'required|integer|min:1|max:1440',
+            'date'  => ['required', 'date'],
+            'time'  => ['required', 'date_format:H:i'],
             'provider' => ['required', 'string', Rule::enum(MeetProvider::class)],
             'status' => ['required', 'string'],
         ]);
 
-        try {
-            $startDateTime = Carbon::createFromFormat(
-                'Y-m-d H:i',
-                $request->start_date . ' ' . $request->start_time,
-                config('app.timezone')
-            );
+        $startDateTime = Carbon::createFromFormat(
+            'Y-m-d H:i',
+            $request->date . ' ' . $request->time,
+            config('app.timezone')
+        );
 
-            $endDateTime = (clone $startDateTime)->addMinutes((int) $request->duration);
+        $endDateTime = (clone $startDateTime)->addMinutes((int) $request->duration);
 
-            if ($request->provider === 'zoom') {
-                $zoom = app(ZoomService::class)->createMeeting([
-                    'topic' => $request->topic,
-                    'start_time' => $startDateTime->toIso8601String(),
-                    'duration' => $request->duration,
-                ]);
+        $zoom = app(ZoomService::class)->createMeeting([
+            'topic' => $request->topic,
+            'start_time' => $startDateTime->toIso8601String(),
+            'duration' => 120,
+        ]);
 
-                Meet::create([
-                    'topic'      => $request->topic,
-                    'start_time' => $startDateTime->format('Y-m-d H:i:s'),
-                    'end_time'   => $endDateTime->format('Y-m-d H:i:s'),
-                    'course_id'  => $request->course_id ?? null,
-                    'host_id'    => $request->host_id ?? null,
-                    'provider'   => MeetProvider::ZOOM,
-                    'meeting_id' => $zoom['id'],
-                    'join_url'   => $zoom['join_url'],
-                    'host_url'   => $zoom['start_url'],
-                    'status'     => $request->status,
-                ]);
+        Meet::create([
+            'course_id'  => Course::getId($request->course_id) ?? null,
+            'host_id'    => User::getId($request->host_id) ?? null,
 
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Meeting Created successfully',
-                ], Response::HTTP_CREATED);
-            }
+            'topic'      => $request->topic,
+            'date' => $startDateTime->format('Y-m-d H:i:s'),
+            'time'   => $endDateTime->format('Y-m-d H:i:s'),
+            'provider'   => MeetProvider::ZOOM,
+            'meeting_id' => $zoom['id'],
+            'join_url'   => $zoom['join_url'],
+            'host_url'   => $zoom['start_url'],
+            'status'     => $request->status,
+        ]);
 
-            if ($request->provider === 'google_meet') {
-                $user = $request->user();
-
-                if (!$user->google_token) {
-                    return response()->json([
-                        'error' => 'Google not connected'
-                    ], 403);
-                }
-
-                $service = new GoogleMeetService($user->google_token);
-
-                $event = $service->createMeeting([
-                    'topic'      => $request->topic,
-                    'start_time' =>  $startDateTime,
-                    'end_time'   => $endDateTime,
-                ]);
-
-                // Save updated token after refresh
-                $user->update([
-                    'google_token' => $service->getToken(),
-                ]);
-
-                Meet::create([
-                    'topic'      => $event['summary'],
-                    'start_time' => $startDateTime->format('Y-m-d H:i:s'),
-                    'end_time'   => $endDateTime->format('Y-m-d H:i:s'),
-                    'course_id'  => $request->course_id ?? null,
-                    'host_id'    => $request->host_id ?? null,
-                    'provider'   => MeetProvider::GOOGLE_MEET,
-                    'meeting_id' => $event['event_id'],
-                    'join_url'   => $event['join_url'],
-                    'host_url'   => $event['join_url'],
-                    'status'     => $request->status,
-                ]);
-
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Google Meet created successfully',
-                    'data'    => $event
-                ], Response::HTTP_CREATED);
-            }
-
-            return response()->json([
-                'message' => 'Invalid provider. Please use "google_meet" or "zoom".'
-            ], Response::HTTP_BAD_REQUEST);
-        } catch (Throwable $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Something went wrong while creating meeting',
-                'error'   => config('app.debug') ? $e->getMessage() : null,
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Meeting Created successfully',
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -160,10 +106,8 @@ class MeetController extends Controller
         ], Response::HTTP_OK);
     }
 
-    public function join(string $id)
+    public function join(Meet $meet)
     {
-        $meet = Meet::query()->findOrFail($id);
-
         $meet->update([
             'status' => MeetStatus::STARTED,
         ]);

@@ -14,7 +14,7 @@ class NoticeResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        //        return parent::toArray($request);
+        //  return parent::toArray($request);
 
         return [
             'id' => $this->hashid,
@@ -23,13 +23,6 @@ class NoticeResource extends JsonResource
             'type' => $this->type,
             'target' => $this->target,
             'published' => (bool) $this->published,
-            'creator' => $this->whenLoaded('creator', [
-                'id' => $this->creator->id,
-                'name' => $this->creator->name,
-                'title' => $this->creator->title,
-                'avatar_url' => $this->creator->avatar_url,
-            ]),
-
             'created_at' => [
                 'human' => $this->created_at->diffForHumans(),
                 'timestamp' => $this->created_at,
