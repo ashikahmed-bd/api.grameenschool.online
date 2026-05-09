@@ -61,6 +61,7 @@ class CourseRequest extends FormRequest
             'access_days' => 'nullable|integer|min:1',
             'level' => 'required|string',
             'is_feature' => 'required|boolean',
+            'is_bundle' => 'required|boolean',
 
             'learnings' => 'nullable|array',
             'learnings.*' => 'string|max:255',

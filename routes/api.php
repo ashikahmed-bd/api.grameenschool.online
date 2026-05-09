@@ -49,9 +49,6 @@ Route::get('/courses/latest', [CourseController::class, 'getLatestCourses']);
 Route::get('/testimonials', [TestimonialController::class, 'getTestimonials']);
 Route::get('/cta', [AppController::class, 'cta']);
 
-Route::get('/grades', [GradeController::class, 'getGrades']);
-
-
 Route::get('/courses', [CourseController::class, 'courses']);
 Route::get('/courses/{course}/instructors', [CourseController::class, 'instructors']);
 Route::get('/courses/{course}/curriculum', [CourseController::class, 'curriculum']);

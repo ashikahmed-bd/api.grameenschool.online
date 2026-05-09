@@ -74,6 +74,7 @@ class CourseController extends Controller
         $course->access_days = $request->access_days;
         $course->level = $request->level ?? CourseLevel::ALL;
         $course->is_feature = $request->is_feature;
+        $course->is_bundle = $request->is_bundle;
 
         $course->learnings = $request->learnings;
         $course->requirements = $request->requirements;
