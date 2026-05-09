@@ -43,18 +43,16 @@ class CourseRequest extends FormRequest
             'category_id' => 'required|exists:categories,hashid',
             'subcategory_id' => 'nullable|exists:categories,hashid',
             'collection_id' => 'nullable|exists:collections,hashid',
-            'grade_id' => 'nullable|exists:grades,hashid',
-            'batch_id' => 'nullable|exists:batches,hashid',
 
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'overview' => 'required|string',
             'description' => 'nullable|string',
 
-            'meta_title' => 'required|string',
-            'meta_description' => 'required|string',
-            'meta_keywords' => 'required|string',
-            'canonical_url' => 'required|string',
+            'meta_title' => 'nullable|string',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
+            'canonical_url' => 'nullable|string',
 
             'base_price' => 'required|numeric|min:0',
             'price' => 'nullable|numeric|min:0',

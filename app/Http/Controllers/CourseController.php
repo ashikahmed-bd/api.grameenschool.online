@@ -60,7 +60,7 @@ class CourseController extends Controller
         $course->batch_id = Batch::getId($request->batch_id);
 
         $course->title = $request->title;
-        $course->slug = Str::slug($request->title);
+        $course->slug = Str::slug($request->slug);
         $course->overview = $request->overview;
         $course->description = $request->description;
 
