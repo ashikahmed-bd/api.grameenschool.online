@@ -140,22 +140,7 @@ class CategoryController extends Controller
         return CategoryResource::collection($categories);
     }
 
-    public function getNavigation()
-    {
-        $categories = Cache::remember('navigation', 3600, function () {
-            return Category::query()
-                ->whereNull('parent_id')
-                ->where('active', true)
-                ->orderBy('sort_order')
-                ->with(['children' => function ($query) {
-                    $query->where('active', true)
-                        ->orderBy('sort_order');
-                }])
-                ->get();
-        });
 
-        return CategoryResource::collection($categories);
-    }
 
     public function getTopCategories()
     {
@@ -177,22 +162,17 @@ class CategoryController extends Controller
 
     public function getCategories()
     {
-        $categories = Category::whereNull('parent_id')
-            ->with([
-                'children.courses' => function ($query) {
-                    $query->with(['author'])
-                        ->withCount(['reviews', 'lectures'])
-                        ->withAvg('reviews', 'rating');
-                },
-                'courses' => function ($query) {
-                    $query->with(['author'])
-                        ->withCount(['reviews', 'lectures'])
-                        ->withAvg('reviews', 'rating');
-                }
-            ])
-            ->where('active', true)
-            ->orderBy('sort_order')
-            ->get();
+        $categories = Cache::remember('navigation', 3600, function () {
+            return Category::query()
+                ->whereNull('parent_id')
+                ->where('active', true)
+                ->orderBy('sort_order')
+                ->with(['children' => function ($query) {
+                    $query->where('active', true)
+                        ->orderBy('sort_order');
+                }])
+                ->get();
+        });
 
         return CategoryResource::collection($categories);
     }

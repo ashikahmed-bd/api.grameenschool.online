@@ -16,9 +16,7 @@ return new class extends Migration
             $table->string('hashid')->nullable();
 
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('grade_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('batch_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('group_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
 
             $table->string('student_id')->nullable()->unique();
 
@@ -36,8 +34,6 @@ return new class extends Migration
             $table->string('session')->nullable();
 
             $table->timestamps();
-
-            $table->index(['grade_id', 'batch_id', 'group_id']);
         });
     }
 

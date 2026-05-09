@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AcademicRequest;
-use App\Http\Resources\CourseResource;
 use App\Http\Resources\MeetResource;
 use App\Http\Resources\MyCourseResource;
 use App\Http\Resources\OrderResource;
@@ -27,40 +26,10 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        $profile = $user->student;
-
-        if (!$profile) {
-            return response()->json([
-                'message' => 'Student profile not found.'
-            ], 404);
-        }
+        $student = $user->student;
 
         $courses = Course::query()
-            ->with([
-                'author',
-                'grade',
-                'batch',
-            ])
-            ->withCount([
-                'reviews',
-                'lectures',
-            ])
-            ->withAvg('reviews', 'rating')
-            ->where('active', true)
-            ->where(function ($query) use ($profile) {
-
-                // Grade Match
-                $query->where('grade_id', $profile->grade_id);
-
-                // If batch exists
-                if ($profile->batch_id) {
-                    $query->where(function ($q) use ($profile) {
-                        $q->whereNull('batch_id')
-                            ->orWhere('batch_id', $profile->batch_id);
-                    });
-                }
-            })
-            ->latest()
+            ->where('category_id', $student->category_id)
             ->get();
 
         return UserResource::make($user);
@@ -82,9 +51,7 @@ class ProfileController extends Controller
                 'name' => $user->name,
                 'phone' => $user->phone,
                 'email' => $user->email,
-                'grade_id' => $request->grade_id,
-                'batch_id' => $request->batch_id,
-                'group_id' => $request->group_id,
+                'category_id' => $request->category_id,
                 'dob' => $request->dob,
                 'gender' => $request->gender,
                 'address' => $request->address,

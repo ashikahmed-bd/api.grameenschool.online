@@ -21,8 +21,8 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('overview')->nullable();
-            $table->string('icon')->default('');
+            $table->string('icon')->nullable();
+            $table->text('description')->nullable();
 
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
@@ -35,7 +35,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->index(['parent_id', 'active', 'sort_order']);
+            $table->index(['parent_id', 'sort_order', 'active']);
         });
     }
 

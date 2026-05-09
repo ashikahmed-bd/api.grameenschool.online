@@ -19,12 +19,9 @@ return new class extends Migration
             $table->string('hashid')->nullable();
 
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('subcategory_id')->nullable()->constrained('categories', 'id')->cascadeOnDelete();
             $table->foreignId('collection_id')->nullable()->constrained('collections')->onDelete('set null');
-
-            $table->foreignId('grade_id')->nullable()->constrained('grades')->nullOnDelete();
-            $table->foreignId('batch_id')->nullable()->constrained('batches')->nullOnDelete();
 
             $table->string('title');
             $table->string('slug');
@@ -41,6 +38,7 @@ return new class extends Migration
             $table->integer('access_days')->nullable();
 
             $table->string('level')->default(CourseLevel::ALL->value);
+            $table->boolean('is_bundle')->default(false);
             $table->boolean('is_feature')->default(false);
 
             $table->json('learnings')->nullable();
