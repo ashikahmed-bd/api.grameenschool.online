@@ -56,8 +56,6 @@ class CourseController extends Controller
         $course->category_id = Category::getId($request->category_id);
         $course->subcategory_id = Category::getId($request->subcategory_id);
         $course->collection_id = Collection::getId($request->collection_id);
-        $course->grade_id = Grade::getId($request->grade_id);
-        $course->batch_id = Batch::getId($request->batch_id);
 
         $course->title = $request->title;
         $course->slug = Str::slug($request->slug);
@@ -275,8 +273,24 @@ class CourseController extends Controller
         ]);
     }
 
+    public function bundleCourses()
+    {
+        $courses = Course::published()
+            ->where('is_bundle', true)
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-    public function getFeaturedCourses()
+        return response()->json([
+            'title' => 'এক কোর্সে নয়, সম্পূর্ণ স্কিল প্যাকেজ একসাথে',
+            'subtitle' => 'ক্যারিয়ার, একাডেমিক ও স্কিল ডেভেলপমেন্টের জন্য বাছাইকৃত একাধিক প্রিমিয়াম কোর্স নিয়ে তৈরি বিশেষ বান্ডেল। কম খরচে বেশি শেখার সুযোগ নিয়ে নিজেকে এগিয়ে রাখুন।',
+            'items' => CourseResource::collection($courses),
+        ]);
+    }
+
+
+    public function featuredCourses()
     {
         $courses = Course::published()->where('is_feature', true)
             ->withAvg('reviews', 'rating')
@@ -285,30 +299,13 @@ class CourseController extends Controller
             ->get();
 
         return response()->json([
-            'title' => 'পছন্দের কোর্স করুন, নিজেকে সেরা করে গড়ে তুলুন',
-            'subtitle' => 'আমাদের কোর্সগুলো আপনাকে নতুন দক্ষতা অর্জন করতে ও পেশাগত জীবনে এগিয়ে যেতে সাহায্য করবে, নিজের
-                        গতিতে শিখুন এবং হয়ে উঠুন আরও আত্মবিশ্বাসী।',
+            'title' => 'সবচেয়ে জনপ্রিয় ও স্টুডেন্টদের পছন্দের কোর্সসমূহ',
+            'subtitle' => 'ইন্ডাস্ট্রি ডিমান্ড, স্টুডেন্ট সাকসেস ও আপডেটেড কারিকুলামের ভিত্তিতে নির্বাচিত আমাদের সেরা ফিচারড কোর্সগুলো দিয়ে আজই শুরু করুন আপনার শেখার যাত্রা।',
             'items' => CourseResource::collection($courses),
         ]);
     }
 
-    public function getLatestCourses()
-    {
-        $courses = Course::published()
-            ->withAvg('reviews', 'rating')
-            ->withCount('reviews')
-            ->with(['category'])
-            ->orderBy('created_at', 'desc')
-            ->take(9)
-            ->get();
 
-        return response()->json([
-            'title' => 'আমাদের সর্বশেষ কোর্সসমূহ',
-            'subtitle' => 'সময়ের সাথে তাল মিলিয়ে তৈরি করা আপডেটেড ও চাহিদাসম্পন্ন নতুন কোর্সসমূহ একসাথে,
-                        যেখানে বাস্তব অভিজ্ঞতা ও স্কিল ডেভেলপমেন্টকে দেওয়া হয়েছে সর্বোচ্চ গুরুত্ব।',
-            'items' => CourseResource::collection($courses),
-        ]);
-    }
 
     public function coursesByAuthor(User $user)
     {

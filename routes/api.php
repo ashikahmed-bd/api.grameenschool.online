@@ -43,9 +43,8 @@ Route::get('/sliders', [SliderController::class, 'getSliders']);
 Route::get('/collections', [CollectionController::class, 'getCollections']);
 Route::get('/collections/{collection:slug}/courses', [CollectionController::class, 'getCollectionCourses']);
 Route::get('/benefits', [BenefitController::class, 'getBenefits']);
-Route::get('/courses/featured', [CourseController::class, 'getFeaturedCourses']);
-
-Route::get('/courses/latest', [CourseController::class, 'getLatestCourses']);
+Route::get('/courses/bundle', [CourseController::class, 'bundleCourses']);
+Route::get('/courses/featured', [CourseController::class, 'featuredCourses']);
 Route::get('/testimonials', [TestimonialController::class, 'getTestimonials']);
 Route::get('/cta', [AppController::class, 'cta']);
 
