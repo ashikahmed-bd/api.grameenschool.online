@@ -254,7 +254,6 @@ Route::scopeBindings()->group(function () {
         Route::delete('users/{user}', [UserController::class, 'destroy']);
 
 
-
         // contact
         Route::get('contacts', [ContactController::class, 'index']);
         Route::post('contact', [ContactController::class, 'store']);
@@ -291,6 +290,6 @@ Route::scopeBindings()->group(function () {
         Route::delete('tokens/flush', [SettingsController::class, 'flushTokens']);
 
         Route::get('storage-link', [SettingsController::class, 'storageLink']);
-        Route::get('reboot', [SettingsController::class, 'reboot']);
+        Route::get('cache-clear', [SettingsController::class, 'reboot']);
     });
 });

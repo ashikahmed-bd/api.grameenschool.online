@@ -18,22 +18,25 @@ class CourseResource extends JsonResource
         return [
             'id' => $this->hashid,
 
-            'author' => $this->whenLoaded('author', fn() => [
-                'id'   => $this->author->hashid,
-                'name' => $this->author->name,
-                'avatar_url' => $this->author->avatar_url,
-            ]),
-            $this->mergeWhen($this->relationLoaded('category'), [
-                'category' => [
+            'author' => $this->whenLoaded('author', function () {
+                return $this->author ? [
+                    'id' => $this->author->hashid,
+                    'name' => $this->author->name,
+                    'avatar_url' => $this->author->avatar_url,
+                ] : null;
+            }),
+            $this->mergeWhen($this->whenLoaded('category'), [
+                'category' => $this->category ? [
                     'id' => $this->category->hashid,
                     'name' => $this->category->name,
                     'slug' => $this->category->slug,
-                ],
-                'subcategory' => [
+                ] : null,
+
+                'subcategory' => $this->subcategory ? [
                     'id' => $this->subcategory->hashid,
                     'name' => $this->subcategory->name,
                     'slug' => $this->subcategory->slug,
-                ],
+                ] : null,
             ]),
 
             'collection' => $this->whenLoaded('collection', fn() => [

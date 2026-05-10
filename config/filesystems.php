@@ -59,24 +59,6 @@ return [
             'throw' => false,
             'report' => false,
         ],
-
-        'videos' => [
-            'driver' => 'local',
-            'root' => public_path('videos'),
-            'url' => env('APP_URL') . '/videos',
-            'visibility' => 'public',
-            'throw' => false,
-            'report' => false,
-        ],
-
-        'temp' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/temp'),
-            'url' => env('APP_URL') . '/storage/temp',
-            'visibility' => 'public',
-            'throw' => false,
-            'report' => false,
-        ],
     ],
 
     /*

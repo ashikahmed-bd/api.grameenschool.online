@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(PageSeeder::class);
         $this->call(SettingsSeeder::class);
         $this->call(PaymentGatewaySeeder::class);
         $this->call(SliderSeeder::class);

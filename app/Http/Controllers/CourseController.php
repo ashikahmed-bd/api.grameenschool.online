@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Enums\CourseLevel;
 use App\Enums\CourseStatus;
 use App\Enums\EnrollmentStatus;
-use App\Enums\Provider;
 use App\Http\Requests\CourseRequest;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CourseResource;
@@ -13,12 +12,10 @@ use App\Http\Resources\LectureResource;
 use App\Http\Resources\ReviewResource;
 use App\Http\Resources\SectionResource;
 use App\Http\Resources\UserResource;
-use App\Models\Batch;
 use App\Models\Category;
 use App\Models\Collection;
 use App\Models\Course;
 use App\Models\Enrollment;
-use App\Models\Grade;
 use App\Models\Lecture;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -33,19 +30,14 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courses = Course::query();
-
-        $paginated = $courses->withCount('students', 'reviews', 'lectures')
+        $courses = Course::query()
+            ->select('id', 'hashid', 'title', 'slug')
+            ->with(['category:id,hashid,name,slug'])
+            ->withCount('students', 'reviews', 'lectures')
             ->orderByDesc('created_at')
             ->paginate();
 
-
-        return CourseResource::collection($paginated)->additional([
-            'total_draft'     => $courses->where('status', CourseStatus::DRAFT->value)->count(),
-            'total_pending' => $courses->where('status', CourseStatus::PENDING->value)->count(),
-            'total_published' => $courses->where('status', CourseStatus::PUBLISHED->value)->count(),
-            'total_archived'  => $courses->where('status', CourseStatus::ARCHIVED->value)->count(),
-        ]);
+        return CourseResource::collection($courses);
     }
 
 
@@ -131,7 +123,7 @@ class CourseController extends Controller
         $course->collection_id = Collection::getId($request->collection_id);
 
         $course->title = $request->title;
-        $course->slug = Str::slug($request->title);
+        $course->slug = Str::slug($request->slug);
         $course->overview = $request->overview;
         $course->description = $request->description;
         $course->meta_title = $request->meta_title;
@@ -280,7 +272,7 @@ class CourseController extends Controller
             'bundle_courses',
             3600,
             fn() => Course::published()
-                ->with('category:id,name,slug')
+                ->with('category:id,hashid,name,slug')
                 ->where('is_bundle', true)
                 ->withAvg('reviews', 'rating')
                 ->withCount('reviews')

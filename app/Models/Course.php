@@ -95,17 +95,6 @@ class Course extends Model
     }
 
 
-    public function getVideoUrlAttribute(): string
-    {
-        return match ($this->provider) {
-            'youtube' => "https://www.youtube.com/embed/{$this->video_id}",
-            'vimeo' => "https://player.vimeo.com/video/{$this->video_id}",
-            'self' => asset("storage/videos/{$this->video_id}"),
-            default => '',
-        };
-    }
-
-
     public function getCoverUrlAttribute()
     {
         if (! $this->cover) {
@@ -133,33 +122,5 @@ class Course extends Model
         return collect([5, 4, 3, 2, 1])->mapWithKeys(function ($star) {
             return [$star => $this->reviews()->where('rating', $star)->where('approved', true)->count()];
         });
-    }
-
-
-    public function getDurationFormattedAttribute(): string
-    {
-        $hours = floor($this->duration / 60);
-        $minutes = $this->duration % 60;
-
-        $hourPart = $hours > 0 ? "{$hours}hr" : '';
-        $minutePart = $minutes > 0 ? "{$minutes}min" : '';
-
-        return trim("{$hourPart} {$minutePart}");
-    }
-
-
-    public function canBePurchased(int $quantity): bool
-    {
-        return $quantity >= 1;
-    }
-
-    public function getCartPrice(): string
-    {
-        return (string) $this->price;
-    }
-
-    public function getCartTitle(): string
-    {
-        return $this->title;
     }
 }

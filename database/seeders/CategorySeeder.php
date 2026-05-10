@@ -13,6 +13,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'ক্লাস ৬–১০',
                 'slug' => 'class-6-10',
+                'icon' => '/categories/academic.png',
                 'description' => 'ষষ্ঠ থেকে দশম শ্রেণির শিক্ষার্থীদের জন্য বাংলা, ইংরেজি, গণিত, বিজ্ঞান, আইসিটি ও অন্যান্য সকল বিষয়ের পূর্ণাঙ্গ অনলাইন কোর্স, লাইভ ক্লাস, নোট ও পরীক্ষার প্রস্তুতি।',
                 'meta_title' => 'ক্লাস ৬–১০ অনলাইন কোর্স | ষষ্ঠ–দশম শ্রেণির সকল বিষয়',
                 'meta_description' => 'ষষ্ঠ থেকে দশম শ্রেণির শিক্ষার্থীদের জন্য বাংলা, ইংরেজি, গণিত, বিজ্ঞান, আইসিটি ও বোর্ড পরীক্ষার প্রস্তুতির সেরা অনলাইন কোর্স।',
@@ -25,6 +26,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'ষষ্ঠ শ্রেণি',
                         'slug' => 'class-6',
+                        'icon' => '/categories/six.png',
                         'sort_order' => 1,
                         'description' => 'ষষ্ঠ শ্রেণির শিক্ষার্থীদের জন্য বাংলা, ইংরেজি, গণিত, বিজ্ঞান ও সকল বিষয়ের বোর্ডভিত্তিক অনলাইন কোর্স।',
                         'meta_title' => 'ষষ্ঠ শ্রেণি অনলাইন কোর্স | Class 6 সকল বিষয়',
@@ -36,6 +38,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'সপ্তম শ্রেণি',
                         'slug' => 'class-7',
+                        'icon' => '/categories/seven.png',
                         'sort_order' => 2,
                         'description' => 'সপ্তম শ্রেণির শিক্ষার্থীদের জন্য বোর্ডভিত্তিক পূর্ণাঙ্গ অনলাইন কোর্স ও পরীক্ষার প্রস্তুতি।',
                         'meta_title' => 'সপ্তম শ্রেণি অনলাইন কোর্স | Class 7 সকল বিষয়',
@@ -47,6 +50,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'অষ্টম শ্রেণি',
                         'slug' => 'class-8',
+                        'icon' => '/categories/eight.png',
                         'sort_order' => 3,
                         'description' => 'অষ্টম শ্রেণির শিক্ষার্থীদের জন্য বোর্ডভিত্তিক সকল বিষয়ের ভিডিও ক্লাস, লাইভ ক্লাস ও মডেল টেস্ট।',
                         'meta_title' => 'অষ্টম শ্রেণি অনলাইন কোর্স | Class 8 Course',
@@ -58,6 +62,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'নবম-দশম',
                         'slug' => 'class-9-10',
+                        'icon' => '/categories/ssc.png',
                         'sort_order' => 4,
                         'description' => 'নবম ও দশম শ্রেণির বিজ্ঞান, ব্যবসায় শিক্ষা ও মানবিক বিভাগের শিক্ষার্থীদের জন্য SSC প্রস্তুতির পূর্ণাঙ্গ কোর্স।',
                         'meta_title' => 'নবম-দশম SSC অনলাইন কোর্স | সকল বিভাগ',
@@ -70,6 +75,7 @@ class CategorySeeder extends Seeder
                             [
                                 'name' => 'বিজ্ঞান',
                                 'slug' => 'science',
+                                'icon' => '',
                                 'sort_order' => 1,
                                 'description' => 'SSC বিজ্ঞান বিভাগের শিক্ষার্থীদের জন্য গণিত, পদার্থবিজ্ঞান, রসায়ন ও জীববিজ্ঞানের পূর্ণাঙ্গ কোর্স।',
                                 'meta_title' => 'SSC বিজ্ঞান বিভাগ অনলাইন কোর্স',
@@ -81,6 +87,7 @@ class CategorySeeder extends Seeder
                             [
                                 'name' => 'ব্যবসায় শিক্ষা',
                                 'slug' => 'commerce',
+                                'icon' => '',
                                 'sort_order' => 2,
                                 'description' => 'SSC ব্যবসায় শিক্ষা বিভাগের হিসাববিজ্ঞান, ফিন্যান্স ও ব্যবসায় উদ্যোগ বিষয়ের পূর্ণাঙ্গ কোর্স।',
                                 'meta_title' => 'SSC ব্যবসায় শিক্ষা অনলাইন কোর্স',
@@ -92,6 +99,7 @@ class CategorySeeder extends Seeder
                             [
                                 'name' => 'মানবিক',
                                 'slug' => 'arts',
+                                'icon' => '',
                                 'sort_order' => 3,
                                 'description' => 'SSC মানবিক বিভাগের ইতিহাস, ভূগোল, পৌরনীতি ও অন্যান্য বিষয়ের পূর্ণাঙ্গ অনলাইন কোর্স।',
                                 'meta_title' => 'SSC মানবিক বিভাগ অনলাইন কোর্স',
@@ -108,6 +116,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'HSC একাডেমিক',
                 'slug' => 'hsc-academic',
+                'icon' => '/categories/hsc.svg',
                 'description' => 'একাদশ ও দ্বাদশ শ্রেণির শিক্ষার্থীদের জন্য বিজ্ঞান, ব্যবসায় শিক্ষা ও মানবিক বিভাগের পূর্ণাঙ্গ অনলাইন কোর্স, লাইভ ক্লাস, এক্সাম প্রস্তুতি ও বোর্ডভিত্তিক শিক্ষা।',
                 'meta_title' => 'HSC একাডেমিক অনলাইন কোর্স | বিজ্ঞান, ব্যবসায় শিক্ষা ও মানবিক',
                 'meta_description' => 'HSC বিজ্ঞান, ব্যবসায় শিক্ষা ও মানবিক বিভাগের জন্য বোর্ডভিত্তিক অনলাইন কোর্স, লাইভ ক্লাস, নোট ও পরীক্ষার প্রস্তুতি।',
@@ -120,6 +129,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'বিজ্ঞান',
                         'slug' => 'science',
+                        'icon' => '/categories/science.png',
                         'sort_order' => 1,
                         'description' => 'HSC বিজ্ঞান বিভাগের শিক্ষার্থীদের জন্য পদার্থবিজ্ঞান, রসায়ন, উচ্চতর গণিত, জীববিজ্ঞান ও আইসিটি বিষয়ের পূর্ণাঙ্গ কোর্স।',
                         'meta_title' => 'HSC বিজ্ঞান বিভাগ অনলাইন কোর্স',
@@ -131,6 +141,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'ব্যবসায় শিক্ষা',
                         'slug' => 'commerce',
+                        'icon' => '/categories/commerce.png',
                         'sort_order' => 2,
                         'description' => 'HSC ব্যবসায় শিক্ষা বিভাগের হিসাববিজ্ঞান, ফিন্যান্স, ব্যবস্থাপনা ও ব্যবসায় সংগঠন বিষয়ের পূর্ণাঙ্গ কোর্স।',
                         'meta_title' => 'HSC ব্যবসায় শিক্ষা অনলাইন কোর্স',
@@ -142,6 +153,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'মানবিক',
                         'slug' => 'arts',
+                        'icon' => '/categories/arts.png',
                         'sort_order' => 3,
                         'description' => 'HSC মানবিক বিভাগের ইতিহাস, ইসলামের ইতিহাস, সমাজবিজ্ঞান, পৌরনীতি ও অর্থনীতি বিষয়ের পূর্ণাঙ্গ কোর্স।',
                         'meta_title' => 'HSC মানবিক বিভাগ অনলাইন কোর্স',
@@ -156,6 +168,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'ভর্তি প্রস্তুতি',
                 'slug' => 'admission',
+                'icon' => '/categories/admission.png',
                 'description' => 'বিশ্ববিদ্যালয়, মেডিকেল ও ইঞ্জিনিয়ারিং ভর্তি পরীক্ষার্থীদের জন্য পূর্ণাঙ্গ অনলাইন কোর্স, লাইভ ক্লাস, প্রশ্নব্যাংক, মডেল টেস্ট ও ভর্তি প্রস্তুতি।',
                 'meta_title' => 'ভর্তি প্রস্তুতি অনলাইন কোর্স | বিশ্ববিদ্যালয়, মেডিকেল ও ইঞ্জিনিয়ারিং',
                 'meta_description' => 'বিশ্ববিদ্যালয়, মেডিকেল ও ইঞ্জিনিয়ারিং ভর্তি পরীক্ষার জন্য সেরা অনলাইন কোর্স, লাইভ ক্লাস ও মডেল টেস্ট।',
@@ -168,6 +181,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'বিশ্ববিদ্যালয় ভর্তি',
                         'slug' => 'university',
+                        'icon' => '/categories/university.png',
                         'sort_order' => 1,
                         'description' => 'ঢাকা বিশ্ববিদ্যালয়, রাজশাহী বিশ্ববিদ্যালয়, জাহাঙ্গীরনগরসহ বিভিন্ন বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার পূর্ণাঙ্গ প্রস্তুতি কোর্স।',
                         'meta_title' => 'বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি কোর্স',
@@ -179,6 +193,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'মেডিকেল ভর্তি',
                         'slug' => 'medical',
+                        'icon' => '/categories/medical.png',
                         'sort_order' => 2,
                         'description' => 'মেডিকেল ও ডেন্টাল ভর্তি পরীক্ষার্থীদের জন্য জীববিজ্ঞান, রসায়ন, পদার্থবিজ্ঞান ও ইংরেজির পূর্ণাঙ্গ কোর্স।',
                         'meta_title' => 'মেডিকেল ভর্তি প্রস্তুতি কোর্স',
@@ -190,6 +205,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'ইঞ্জিনিয়ারিং ভর্তি',
                         'slug' => 'engineering',
+                        'icon' => '/categories/engineering.png',
                         'sort_order' => 3,
                         'description' => 'BUET, RUET, KUET, CUET ও অন্যান্য ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার পূর্ণাঙ্গ কোর্স।',
                         'meta_title' => 'ইঞ্জিনিয়ারিং ভর্তি প্রস্তুতি কোর্স',
@@ -204,6 +220,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'স্কিলস',
                 'slug' => 'skills',
+                'icon' => '/categories/skills.png',
                 'description' => 'ক্যারিয়ার ও ফ্রিল্যান্সিংয়ের জন্য ওয়েব ডেভেলপমেন্ট, স্পোকেন ইংলিশ, ডিজিটাল মার্কেটিংসহ আধুনিক স্কিল ডেভেলপমেন্ট কোর্সসমূহ।',
                 'meta_title' => 'স্কিল ডেভেলপমেন্ট অনলাইন কোর্স | Web Development, English, Marketing',
                 'meta_description' => 'ওয়েব ডেভেলপমেন্ট, স্পোকেন ইংলিশ, ডিজিটাল মার্কেটিং ও ফ্রিল্যান্সিংয়ের জন্য সেরা অনলাইন স্কিল কোর্স।',
@@ -216,6 +233,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'ওয়েব ডেভেলপমেন্ট',
                         'slug' => 'web-development',
+                        'icon' => '/categories/web-development.png',
                         'sort_order' => 1,
                         'description' => 'Laravel, PHP, Vue.js, Nuxt, JavaScript ও Full Stack Development শেখার জন্য প্রজেক্টভিত্তিক কোর্স।',
                         'meta_title' => 'ওয়েব ডেভেলপমেন্ট অনলাইন কোর্স',
@@ -227,6 +245,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'স্পোকেন ইংলিশ',
                         'slug' => 'spoken-english',
+                        'icon' => '/categories/speaking.png',
                         'sort_order' => 2,
                         'description' => 'দৈনন্দিন কথোপকথন, IELTS speaking ও professional communication এর জন্য স্পোকেন ইংলিশ কোর্স।',
                         'meta_title' => 'স্পোকেন ইংলিশ অনলাইন কোর্স',
@@ -238,6 +257,7 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'ডিজিটাল মার্কেটিং',
                         'slug' => 'digital-marketing',
+                        'icon' => '/categories/digital-marketing.png',
                         'sort_order' => 3,
                         'description' => 'Facebook Marketing, SEO, YouTube Marketing, Content Marketing ও Freelancing ভিত্তিক ডিজিটাল মার্কেটিং কোর্স।',
                         'meta_title' => 'ডিজিটাল মার্কেটিং অনলাইন কোর্স',
@@ -254,6 +274,7 @@ class CategorySeeder extends Seeder
             $parent = Category::create([
                 'name' => $category['name'],
                 'slug' => $category['slug'],
+                'icon' => $category['icon'],
                 'description' => $category['description'] ?? null,
                 'meta_title' => $category['meta_title'] ?? null,
                 'meta_description' => $category['meta_description'] ?? null,
@@ -268,6 +289,7 @@ class CategorySeeder extends Seeder
                     Category::create([
                         'name' => $child['name'],
                         'slug' => $child['slug'],
+                        'icon' => $child['icon'],
                         'sort_order' => $child['sort_order'] ?? 0,
                         'description' => $child['description'] ?? null,
                         'meta_title' => $child['meta_title'] ?? null,
