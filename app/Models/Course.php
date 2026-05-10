@@ -31,15 +31,7 @@ class Course extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function grade(): BelongsTo
-    {
-        return $this->belongsTo(Grade::class);
-    }
 
-    public function batch(): BelongsTo
-    {
-        return $this->belongsTo(Batch::class);
-    }
 
     public function instructors()
     {

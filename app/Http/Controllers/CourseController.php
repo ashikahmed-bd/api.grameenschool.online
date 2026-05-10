@@ -22,6 +22,7 @@ use App\Models\Grade;
 use App\Models\Lecture;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
@@ -275,12 +276,17 @@ class CourseController extends Controller
 
     public function bundleCourses()
     {
-        $courses = Course::published()
-            ->where('is_bundle', true)
-            ->withAvg('reviews', 'rating')
-            ->withCount('reviews')
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $courses = Cache::remember(
+            'bundle_courses',
+            3600,
+            fn() => Course::published()
+                ->with('category:id,name,slug')
+                ->where('is_bundle', true)
+                ->withAvg('reviews', 'rating')
+                ->withCount('reviews')
+                ->latest()
+                ->get()
+        );
 
         return response()->json([
             'title' => 'এক কোর্সে নয়, সম্পূর্ণ স্কিল প্যাকেজ একসাথে',
@@ -292,11 +298,19 @@ class CourseController extends Controller
 
     public function featuredCourses()
     {
-        $courses = Course::published()->where('is_feature', true)
-            ->withAvg('reviews', 'rating')
-            ->withCount('reviews')
-            ->orderBy('created_at', 'desc')
-            ->get();
+
+        $courses = Cache::remember(
+            'featured_courses',
+            3600,
+            fn() => Course::published()
+                ->with('category:id,name,slug')
+                ->where('is_feature', true)
+                ->where('is_bundle', false)
+                ->withAvg('reviews', 'rating')
+                ->withCount('reviews')
+                ->latest()
+                ->get()
+        );
 
         return response()->json([
             'title' => 'সবচেয়ে জনপ্রিয় ও স্টুডেন্টদের পছন্দের কোর্সসমূহ',
