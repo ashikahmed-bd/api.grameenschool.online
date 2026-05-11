@@ -116,7 +116,7 @@ Route::prefix('payment')->group(function () {
 Route::scopeBindings()->group(function () {
     Route::prefix('profile')->middleware(['auth:sanctum'])->group(function () {
 
-        Route::put('/academic', [ProfileController::class, 'academic']);
+        Route::get('/', [ProfileController::class, 'index']);
         Route::get('/courses', [ProfileController::class, 'courses']);
         Route::get('/courses/{course:slug}/lectures/{lecture}', [CourseController::class, 'learn']);
 

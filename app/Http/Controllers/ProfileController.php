@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AcademicRequest;
+use App\Http\Resources\CourseResource;
 use App\Http\Resources\MeetResource;
 use App\Http\Resources\MyCourseResource;
 use App\Http\Resources\OrderResource;
@@ -24,48 +24,57 @@ class ProfileController extends Controller
     {
         $user = $request->user();
 
-        $user = $request->user();
+        $query = $user->enrollments()
+            ->withPivot([
+                'progress',
+                'status',
+                'enrolled_at',
+                'completed_at'
+            ]);
 
-        $student = $user->student;
+        $total = (clone $query)->count();
 
-        $courses = Course::query()
-            ->where('category_id', $student->category_id)
+        $ongoing = (clone $query)
+            ->wherePivot('status', 'ongoing')
+            ->count();
+
+        $completed = (clone $query)
+            ->wherePivot('status', 'completed')
+            ->count();
+
+        $enrolled = (clone $query)
+            ->with(['author'])
+            ->withCount(['lectures', 'students'])
+            ->latest('enrollments.enrolled_at')
             ->get();
 
-        return UserResource::make($user);
-    }
+        $categoryId = $user->student?->category_id;
 
-
-
-
-
-    public function academic(AcademicRequest $request)
-    {
-        $user = $request->user();
-
-        $student = $user->student()->updateOrCreate(
-            [
-                'user_id' => $user->id,
-            ],
-            [
-                'name' => $user->name,
-                'phone' => $user->phone,
-                'email' => $user->email,
-                'category_id' => $request->category_id,
-                'dob' => $request->dob,
-                'gender' => $request->gender,
-                'address' => $request->address,
-                'school' => $request->school,
-                'session' => $request->session,
-                'is_active' => $request->is_active ?? true,
-            ]
-        );
+        $courses = Course::query()
+            ->with(['author'])
+            ->withCount(['lectures', 'students'])
+            ->when($categoryId, function ($query) use ($categoryId) {
+                $query->where('category_id', $categoryId);
+            })
+            ->whereNotIn('id', $enrolled->pluck('id'))
+            ->latest()
+            ->get();
 
         return response()->json([
-            'message' => 'ক্লাস সফলভাবে পরিবর্তন করা হয়েছে',
-            'user' => $student->fresh()
+            'user' => UserResource::make($user),
+            'stats' => [
+                'total' => $total,
+                'ongoing' => $ongoing,
+                'completed' => $completed,
+            ],
+
+            'enrolled' => MyCourseResource::collection($enrolled),
+
+            'related' => CourseResource::collection($courses),
         ]);
     }
+
+
 
 
     public function courses(Request $request)
@@ -155,9 +164,16 @@ class ProfileController extends Controller
         }
 
         $user->update([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
+            'name' => $user->name,
+            'phone' => $user->phone,
+            'email' => $user->email,
+            'category_id' => $request->category_id,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'school' => $request->school,
+            'session' => $request->session,
+            'is_active' => $request->is_active ?? true,
         ]);
 
         return response()->json([
