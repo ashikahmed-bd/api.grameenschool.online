@@ -26,7 +26,6 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +37,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/categories', [CategoryController::class, 'getCategories']);
-Route::get('/sliders', [SliderController::class, 'getSliders']);
 Route::get('/collections', [CollectionController::class, 'getCollections']);
 Route::get('/collections/{collection:slug}/courses', [CollectionController::class, 'getCollectionCourses']);
 Route::get('/benefits', [BenefitController::class, 'getBenefits']);
