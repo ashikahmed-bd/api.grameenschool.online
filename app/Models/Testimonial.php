@@ -25,7 +25,7 @@ class Testimonial extends Model
     public function getCoverUrlAttribute(): string
     {
         if (! $this->cover) {
-            return Storage::disk('public')->url('covers/default.png');
+            return Storage::disk('public')->url('testimonials/default.png');
         }
 
         return Storage::disk($this->disk)->url($this->cover);

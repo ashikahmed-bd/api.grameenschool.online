@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Enums\CourseLevel;
-use App\Enums\CourseStatus;
 use App\Enums\EnrollmentStatus;
 use App\Http\Requests\CourseRequest;
 use App\Http\Resources\CategoryResource;
@@ -22,6 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Format;
 use Intervention\Image\Laravel\Facades\Image;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -158,19 +158,21 @@ class CourseController extends Controller
 
         $file = $request->file('cover');
 
-
         if ($course->cover && Storage::disk($course->disk)->exists($course->cover)) {
             Storage::disk($course->disk)->delete($course->cover);
         }
 
-        $extension = $file->getClientOriginalExtension();
-        $fileName = Str::slug($course->slug) . '.' . $extension;
+        $path = $file->storeAs('covers', pathinfo($course->slug, PATHINFO_FILENAME) . '.webp', config('app.disk'));
 
-        $path = $file->storeAs('covers', $fileName, config('app.disk'));
+        $encoded = Image::decode($file)
+            ->cover(1200, 630)
+            ->encodeUsingFormat(
+                Format::WEBP,
+                progressive: true,
+                quality: 70
+            );
 
-        Image::read($request->file('cover'))
-            ->cover(600, 360)
-            ->save(Storage::disk(config('app.disk'))->path($path));
+        Storage::disk(config('app.disk'))->put($path, (string) $encoded);
 
         $course->update([
             'cover' => $path,
@@ -179,7 +181,7 @@ class CourseController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Course Cover Updated'
+            'message' => 'Course Cover Updated',
         ], Response::HTTP_OK);
     }
 
