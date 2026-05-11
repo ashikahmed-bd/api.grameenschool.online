@@ -85,10 +85,6 @@ class CourseResource extends JsonResource
             ],
             'average_rating' => round($this->reviews_avg_rating, 1),
             'reviews_count'  => $this->whenCounted('reviews'),
-            'lectures_count' => (int) $this->whenCounted('lectures'),
-            'students_count' => (int) $this->whenCounted('students'),
-
-            'sections' => SectionResource::collection($this->whenLoaded('sections')),
         ];
     }
 }

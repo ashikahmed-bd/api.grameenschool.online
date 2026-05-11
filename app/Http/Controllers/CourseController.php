@@ -6,6 +6,7 @@ use App\Enums\CourseLevel;
 use App\Enums\EnrollmentStatus;
 use App\Http\Requests\CourseRequest;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\CourseOverviewResource;
 use App\Http\Resources\CourseResource;
 use App\Http\Resources\LectureResource;
 use App\Http\Resources\ReviewResource;
@@ -236,7 +237,7 @@ class CourseController extends Controller
         $course->load(['author'])
             ->loadCount(['students', 'lectures']);
 
-        return CourseResource::make($course);
+        return CourseOverviewResource::make($course);
     }
 
     public function instructors(Course $course)
