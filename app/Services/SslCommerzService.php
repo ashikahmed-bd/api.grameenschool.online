@@ -28,7 +28,7 @@ class SslCommerzService
         $payload = [
             'store_id' => $this->storeId,
             'store_passwd' => $this->storePassword,
-            'total_amount' => $order->due_amount,
+            'total_amount' => $order->due,
             'currency' => 'BDT',
             'tran_id' => $order->invoice_id,
             'success_url' => env('APP_URL') . '/api/payment/success',

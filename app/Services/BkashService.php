@@ -69,7 +69,7 @@ class BkashService
             'Authorization' => $this->token,
             'X-APP-Key' =>  $this->appKey,
         ])->post($this->getBaseUrl() . "/v1.2.0-beta/tokenized/checkout/create", [
-            'amount' => $order->due_amount,
+            'amount' => $order->due,
             'currency' => 'BDT',
             'payerReference' => $order->user->phone,
             'mode' => '0011',
