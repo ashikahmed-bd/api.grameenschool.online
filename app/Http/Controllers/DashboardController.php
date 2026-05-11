@@ -28,8 +28,8 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        $courses = Course::withCount('enrollments', 'reviews')
-            ->orderBy('enrollments_count', 'desc')
+        $courses = Course::withCount('students', 'reviews')
+            ->orderBy('students_count', 'desc')
             ->take(5)
             ->get();
 

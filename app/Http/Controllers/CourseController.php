@@ -31,7 +31,6 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::query()
-            ->select('id', 'hashid', 'title', 'slug')
             ->with(['category:id,hashid,name,slug'])
             ->withCount('students', 'reviews', 'lectures')
             ->orderByDesc('created_at')

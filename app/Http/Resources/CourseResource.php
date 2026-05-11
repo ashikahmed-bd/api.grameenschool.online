@@ -62,7 +62,6 @@ class CourseResource extends JsonResource
             'access_days' => $this->access_days,
 
             'level' => $this->level,
-
             'learnings'    => $this->learnings ?? [],
             'requirements' => $this->requirements ?? [],
             'includes'     => $this->includes ?? [],
