@@ -98,7 +98,7 @@ class Course extends Model
     public function getCoverUrlAttribute()
     {
         if (! $this->cover) {
-            return Storage::disk($this->disk)->url('courses/default.png');
+            return Storage::disk($this->disk)->url('covers/default.png');
         }
 
         return Storage::disk($this->disk)->url($this->cover);

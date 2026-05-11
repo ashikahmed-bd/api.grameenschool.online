@@ -189,6 +189,7 @@ class CategoryController extends Controller
         }
 
         $courses = Course::query()
+            ->published()
             ->with(['author'])
             ->withCount(['reviews', 'lectures'])
             ->withAvg('reviews', 'rating')
@@ -196,7 +197,7 @@ class CategoryController extends Controller
                 $query->whereIn('category_id', $categoryIds)
                     ->orWhereIn('subcategory_id', $categoryIds);
             })
-            ->latest()
+            ->orderByDesc('is_bundle')
             ->paginate(12);
 
         return CourseResource::collection($courses)->additional([
