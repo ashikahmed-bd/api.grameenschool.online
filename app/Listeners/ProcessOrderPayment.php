@@ -9,6 +9,7 @@ use App\Events\OrderPaidEvent;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Carbon;
 
 class ProcessOrderPayment
 {
@@ -33,16 +34,23 @@ class ProcessOrderPayment
             ]);
 
             foreach ($order->items as $item) {
-                // course enrollment
+
                 $course = $item->course;
 
-                if ($item->course_id) {
+                if ($item->course_id && $course) {
+
+                    $accessDays = (int) $course->access_days;
                     Enrollment::updateOrCreate(
-                        ['course_id' => $item->course_id, 'user_id' => $order->user_id],
                         [
-                            'order_id' => $order->id,
-                            'expires_at' => $course->access_days ? now()->addDays($course->access_days) : null,
-                            'updated_at' => now()
+                            'course_id' => $item->course_id,
+                            'user_id'   => $order->user_id,
+                        ],
+                        [
+                            'order_id'    => $order->id,
+                            'expires_at'   => $accessDays > 0
+                                ? now()->addDays($accessDays)
+                                : null,
+                            'updated_at'   => now(),
                         ]
                     );
                 }

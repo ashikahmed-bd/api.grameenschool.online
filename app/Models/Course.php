@@ -20,6 +20,7 @@ class Course extends Model
     protected $casts = [
         'level' => CourseLevel::class,
         'price' => 'float',
+        'access_days' => 'integer',
         'learnings'    => 'array',
         'requirements' => 'array',
         'includes' => 'array',

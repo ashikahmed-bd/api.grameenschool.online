@@ -17,6 +17,7 @@ class Enrollment extends Model
         'completed_at' => 'datetime',
         'progress' => 'integer',
         'status' => EnrollmentStatus::class,
+
     ];
 
     public function user()
