@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Enums\EnrollmentStatus;
 use App\Enums\OrderStatus;
 use App\Models\Enrollment;
 use App\Enums\PaymentStatus;
@@ -9,7 +10,6 @@ use App\Events\OrderPaidEvent;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Support\Carbon;
 
 class ProcessOrderPayment
 {
@@ -47,6 +47,10 @@ class ProcessOrderPayment
                         ],
                         [
                             'order_id'    => $order->id,
+                            'progress'    => 0,
+                            'status'    => EnrollmentStatus::ONGOING,
+                            'certificate'  => false,
+                            'enrolled_at'  => now(),
                             'expires_at'   => $accessDays > 0
                                 ? now()->addDays($accessDays)
                                 : null,
