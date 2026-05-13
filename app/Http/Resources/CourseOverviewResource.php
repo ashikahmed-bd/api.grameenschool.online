@@ -52,9 +52,9 @@ class CourseOverviewResource extends JsonResource
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
             'meta_keywords' => $this->meta_keywords,
-            'canonical_url' => $this->canonical_url,
+            'canonical_url' => client_url($this->canonical_url) . '/' . $this->hashid,
 
-            'base_price' => $this->base_price,
+            'base_price' => round($this->base_price),
             'base_price_formatted' => $this->base_price_formatted,
             'price' => round($this->price),
             'price_formatted' => $this->price_formatted,
