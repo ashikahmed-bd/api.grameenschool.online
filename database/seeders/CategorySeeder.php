@@ -270,36 +270,32 @@ class CategorySeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            // parent
-            $parent = Category::create([
-                'name' => $category['name'],
-                'slug' => $category['slug'],
-                'icon' => $category['icon'],
-                'description' => $category['description'] ?? null,
-                'meta_title' => $category['meta_title'] ?? null,
-                'meta_description' => $category['meta_description'] ?? null,
-                'meta_keywords' => $category['meta_keywords'] ?? null,
-                'canonical_url' => $category['canonical_url'] ?? null,
-                'parent_id' => null,
-            ]);
-
-            // children
-            if (!empty($category['children'])) {
-                foreach ($category['children'] as $child) {
-                    Category::create([
-                        'name' => $child['name'],
-                        'slug' => $child['slug'],
-                        'icon' => $child['icon'],
-                        'sort_order' => $child['sort_order'] ?? 0,
-                        'description' => $child['description'] ?? null,
-                        'meta_title' => $child['meta_title'] ?? null,
-                        'meta_description' => $child['meta_description'] ?? null,
-                        'meta_keywords' => $child['meta_keywords'] ?? null,
-                        'canonical_url' => $child['canonical_url'] ?? null,
-                        'parent_id' => $parent->id,
-                    ]);
-                }
-            }
+            $this->createCategory($category, null);
         }
+    }
+
+    private function createCategory(array $data, $parentId = null)
+    {
+        $children = $data['children'] ?? [];
+        unset($data['children']);
+
+        $category = Category::create([
+            'name' => $data['name'],
+            'slug' => $data['slug'],
+            'icon' => $data['icon'] ?? null,
+            'sort_order' => $data['sort_order'] ?? 0,
+            'description' => $data['description'] ?? null,
+            'meta_title' => $data['meta_title'] ?? null,
+            'meta_description' => $data['meta_description'] ?? null,
+            'meta_keywords' => $data['meta_keywords'] ?? null,
+            'canonical_url' => $data['canonical_url'] ?? null,
+            'parent_id' => $parentId,
+        ]);
+
+        foreach ($children as $child) {
+            $this->createCategory($child, $category->id);
+        }
+
+        return $category;
     }
 }

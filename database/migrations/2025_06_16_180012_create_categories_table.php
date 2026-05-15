@@ -20,7 +20,7 @@ return new class extends Migration
                 ->constrained('categories');
 
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('icon')->nullable();
             $table->text('description')->nullable();
 

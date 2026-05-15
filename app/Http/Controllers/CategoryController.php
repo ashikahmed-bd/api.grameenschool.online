@@ -167,10 +167,7 @@ class CategoryController extends Controller
                 ->whereNull('parent_id')
                 ->where('active', true)
                 ->orderBy('sort_order')
-                ->with(['children' => function ($query) {
-                    $query->where('active', true)
-                        ->orderBy('sort_order');
-                }])
+                ->with('children')
                 ->get();
         });
 

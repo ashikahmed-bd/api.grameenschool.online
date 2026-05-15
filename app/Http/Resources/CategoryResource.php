@@ -14,7 +14,7 @@ class CategoryResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        //  return parent::toArray($request);
+        // return parent::toArray($request);
         return [
             'id'               => $this->hashid,
             'parent_id'        => $this->parent_id,
@@ -39,7 +39,9 @@ class CategoryResource extends JsonResource
             ],
             'deleted_at'       => $this->deleted_at,
 
-            'children' => CategoryResource::collection($this->whenLoaded('children')),
+            'children' => CategoryResource::collection(
+                $this->whenLoaded('children')
+            ),
         ];
     }
 }
